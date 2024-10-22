@@ -1,4 +1,5 @@
 package EclipseGit;
+
 import java.util.Scanner;
 
 public class osaprespococreje {
@@ -78,31 +79,19 @@ public class osaprespococreje {
 		 * System.out.print(i + "_"); }
 		 */
 		// EJERCICIO 6
-		/*
-		 * int suma = 0;
-		 * 
-		 * for (int i = 3; i <= 30; i += 3) { System.out.print(i); if (i < 30) {
-		 * System.out.print(" + "); } suma += i; } System.out.println(" = " + suma);
-		 */
+		
+		  int suma = 0;
+		  
+		  for (int i = 3; i <= 30; i += 3) { System.out.print(i); if (i < 30) {
+		  System.out.print(" + "); } suma += i; } System.out.println(" = " + suma);
+		 
 		// EJERCICIO 7
-		int suma;
-		int numero;
-		do {
-			System.out.println("Digame un numero");
-			numero = sc.nextInt();
-			suma = numero;
-			if (numero == 0) {
-				System.out.println("NOPE");
-				break;
-			}
-			for (int i = numero; i <= 30; i += numero) {
-				System.out.print(i);
-				if (i < 30) {
-					System.out.print(" + ");
-				}
-				suma += i;
-			}
-			System.out.println(" = " + suma);
-		} while (numero >= 1 && numero <= 10);
+		/*
+		 * int suma; int numero; do { System.out.println("Digame un numero"); numero =
+		 * sc.nextInt(); suma = numero; if (numero == 0) { System.out.println("NOPE");
+		 * break; } for (int i = numero; i <= 30; i += numero) { System.out.print(i); if
+		 * (i < 30) { System.out.print(" + "); } suma += i; } System.out.println(" = " +
+		 * suma); } while (numero >= 1 && numero <= 10);
+		 */
 	}
 }
