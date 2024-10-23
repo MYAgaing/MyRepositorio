@@ -12,23 +12,16 @@ public class Ejercicio16 {
 			System.out.println(palabra.charAt(contador));
 		}*/
 		//Ejercicio 17
-		for ( int i = 0 ; i == 0 ; i++) {
 		int numero = sc.nextInt();
 		int num1 = 0;
 		int num2 = 1;
-		 System.out.print(num1 + " ");
-		 System.out.print(num2 + " ");
-		if (numero < 2) {
-			System.out.println("Por favor repitalo");
-			numero = sc.nextInt();
-		} else if (numero > 2) {
-			int num3 = num1 + num2;
-			for (int j = 0 ; j < numero ; j++) {
-				 
-				 num3 += num3;
-				 System.out.print(num3 + " ");
-				 }
-			}
+		int nuevoValor;
+		do {
+			System.out.println("Dame un numero mayor a 2");
+		} while (numero >= 2);
+		for(int serie = 2 ; serie < num1 ; serie ++) {
+			
+			
 		 
 		}
 		sc.close();
