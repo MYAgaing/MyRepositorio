@@ -22,14 +22,18 @@ public class Ejercicio16 {
 		 * 
 		 * }
 		 */
-		//Ejercicio 18
-		System.out.println("Dime una palabra");
-		String palabra = sc.nextLine();
-		String palabra1 = "";
-		for (int i = palabra.length() -1 ; i >= 0 ; i--) {
-			palabra1 += palabra.charAt(i);
-		}
-		System.out.println(palabra1);
+		// Ejercicio 18
+		/*
+		 * System.out.println("Dime una palabra"); String palabra = sc.nextLine();
+		 * String palabra1 = ""; for (int i = palabra.length() -1 ; i >= 0 ; i--) {
+		 * palabra1 += palabra.charAt(i); } System.out.println(palabra1);
+		 */
+		// Ejercicio 19
+		System.out.println("Convertidor de pesetas a euros");
+		System.out.println("1 - Pasar de pesetas a Euros");
+		System.out.println("2 - Pasar de Euros a Pesetas");
+		System.out.println("3 - Salir");
+		
 		sc.close();
 	}
 
