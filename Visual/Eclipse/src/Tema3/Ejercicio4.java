@@ -1,27 +1,24 @@
 package Tema3;
-
 import java.util.Scanner;
 
 public class Ejercicio4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("¿Cuantos numeros me va ha decir?");
-		int veces = sc.nextInt();
-		int[] repetir = new int[veces];
-		int i;
-		int numeros;
-		int contador = -1;
-		System.out.println("Ahora digamelos");
-		for(i = 0 ; i < repetir.length ; i++) {
-			numeros = sc.nextInt();
-			repetir[i] = numeros;
-		}
-		
-		
-		for(int j = veces ; j >=0 ; j--) {
-			System.out.print(repetir[j] + " ");
-		}
-	}
+        System.out.print("¿Cuántos números vas a ingresar? ");
+        int cantidad = scanner.nextInt();
+        
+        int[] numeros = new int[cantidad];
 
+        for (int i = 0; i < cantidad; i++) {
+            System.out.print("Introduce el número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+        }
+        System.out.println("\nLos números ingresados en orden inverso son:");
+        for (int i = cantidad - 1; i >= 0; i--) {
+            System.out.println(numeros[i]);
+        }
+
+        scanner.close();
+    }
 }
