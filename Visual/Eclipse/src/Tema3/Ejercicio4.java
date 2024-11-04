@@ -16,7 +16,7 @@ public class Ejercicio4 {
         }
         System.out.println("\nLos números ingresados en orden inverso son:");
         for (int i = cantidad - 1; i >= 0; i--) {
-            System.out.println(numeros[i]);
+            System.out.println(numeros[i] + " ");
         }
 
         scanner.close();
