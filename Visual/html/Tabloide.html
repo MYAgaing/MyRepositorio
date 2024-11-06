@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!-- <table>
+        <caption><Strong>Registro de Asistencia Semanal</Strong></caption>
+        <tr>
+        <thead>
+        <tr>
+            <th rowspan="2">Empleado</th>
+            <th colspan="5">Dias de la semana</th>
+            <th rowspan="2">total Asistencia</th>
+        </tr>
+        <tr>
+            <th>lunes</th>
+            <th>Martes</th>
+            <th>Miercoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+        </tr>
+        </thead>
+    </tr>
+    <tr>
+        <tbody>
+           
+        </tbody>
+    </tr>
+    </table>-->
+    <table style="width:100%">
+        <thead>
+        <tr>
+          <th rowspan="2">Empleado</th>
+          <th colspan="5">Dias de la semana</th>
+          <th rowspan="2">Total Asistencia</th>
+        </tr>
+        <tr>
+            <th>lunes</th>
+            <th>Martes</th>
+            <th>Miercoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+        </tr>
+    </thead>
+        <tbody>
+        <tr>
+          <td>Ana Pérez</td>
+          <td>Si</td>
+          <td>Si</td>
+          <td>Si</td>
+          <td>Si</td>
+          <td>Si</td>
+          <td>5</td>
+        </tr>
+          <tr>
+            <td>Juan Gómez</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>María Lopez</td>
+            <td>No</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Carlos Ramírez</td>
+            <td>Si</td>
+            <td>No</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>Si</td>
+            <td>4</td>
+          </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+          <td colspan="7"><Strong>Si = Presente, NO = Ausente</Strong></td>
+        </tr>
+    </tfoot>
+      </table>
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+tfoot{
+    background-color: lightgreen;
+}
+thead{
+    background-color: lightpink;
+}
+tbody :nth-child(odd){
+    background-color: lightblue;
+}
+tbody :nth-child(even){
+    background-color: greenyellow;
+}
+tfoot tr td{
+    background-color: lightgreen;
+}
+    </style>
+</body>
+</html>
