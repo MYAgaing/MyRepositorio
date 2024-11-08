@@ -2,7 +2,7 @@ package Tema3;
 
 import java.util.Scanner;
 
-public class Ejercicio17 {
+public class Ejercicio10 {
 
 	public static void main(String[] args) {
 
@@ -12,15 +12,12 @@ public class Ejercicio17 {
 		Integer ultimo = 1;
 		Integer nuevoValor;
 
-		// Solicitar un n�mero mayor que 2
 		do {
-			System.out.println("Dame un n�mero mayor a 2");
+			System.out.println("Dame un numero mayor a 2");
 			numeroSerie = scanner.nextInt();
 		} while (numeroSerie <= 2);
 
-		System.out.print("La serie de fibonacci del n�mero " + numeroSerie + " es: ");
-
-		// Los dos primeros n�meros
+		System.out.print("La serie de fibonacci del numero " + numeroSerie + " es: ");
 		System.out.print(anterior + ", " + ultimo);
 
 		for (int serie = 2; serie < numeroSerie; serie++) {
