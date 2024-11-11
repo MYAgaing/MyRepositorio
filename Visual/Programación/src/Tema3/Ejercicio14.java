@@ -8,13 +8,13 @@ public class Ejercicio14 {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Digame una frase y se pasara a CamelCase");
 		String frase = sc.nextLine();
-		String[] palabras = frase.split(" ");
+		String[] palabras = frase.toLowerCase().split(" ");
 		String primera = palabras[0].toLowerCase();
+		String resultado = "";
 		for (int i = 1 ; i < palabras.length ; i++) {
-			palabras[1].charAt(1);
-			System.out.print(primera + palabras[i]);
-		}
-		
+			 resultado += palabras[i].substring(0, 1).toUpperCase() + palabras[i].substring(1);
+		}	
+		System.out.print(primera + resultado);
 		sc.close();
 	}
 
