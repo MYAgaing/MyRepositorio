@@ -28,29 +28,40 @@ public class Ejercicios_respaso_avanzado {
 
 		/*
 		 * System.out.println("Como de grande lo quiere?"); int n = sc.nextInt(); for
-		 * (int i = 0 ; i < n ; i++) { for (int j = 0 ; j < n ; j++) { if (i == j || i +
-		 * j == n - 1) { System.out.print("* "); } else { System.out.print("- "); } }
+		 * (int i = 0; i < n; i++) { for (int j = 0; j < n; j++) { if (i == j || i + j
+		 * == n - 1) { System.out.print("* "); } else { System.out.print("- "); } }
 		 * System.out.println(); }
 		 */
-		for(int i = 0 ; i < 5 ; i++) {
-			if (i == 0) {
-				for (int j = 1 ; j < 10 ; j++) {
-					if (j == 9 ) {
-						System.out.println(j + " ");
-					} else {
-						System.out.print(j);
-					}
-				}
-			} else if (i == 1) {
-				for (int j = 2 ; j < 10 ; j+= 2) {
-					if (j == 10 ) {
-						System.out.println(j + " ");
-					} else {
-						System.out.print(j);
-					}
-				
-				}
-			}
-		}
+
+		/*
+		 * for(int q = 0; q < 10 ; q++) {
+		 * 
+		 * System.out.print(q);
+		 * 
+		 * } System.out.println(); for(int i = 2; i < 10 ; i +=2) {
+		 * 
+		 * System.out.print(i);
+		 * 
+		 * } System.out.println(); for(int i = 3; i < 10 ; i +=3) {
+		 * 
+		 * System.out.print(i);
+		 * 
+		 * } System.out.println(); for(int i = 4; i < 10 ; i +=4) {
+		 * 
+		 * System.out.print(i);
+		 * 
+		 * } System.out.println(); for(int i = 5; i < 10 ; i +=5) {
+		 * 
+		 * System.out.print(i);
+		 * 
+		 * }
+		 */
+
+		/*
+		 * int[] incrementos = {1, 2, 3, 4, 5};
+		 * 
+		 * for (int incremento : incrementos) { for (int i = incremento; i < 10; i +=
+		 * incremento) { System.out.print(i); } System.out.println(); }
+		 */
 	}
 }
