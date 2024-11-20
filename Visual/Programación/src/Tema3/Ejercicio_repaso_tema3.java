@@ -126,37 +126,41 @@ public class Ejercicio_repaso_tema3 {
 		 * 
 		 * System.out.println("Texto extraído:"); System.out.println(textoExtraido);
 		 */
-		
+
 		System.out.println("¿Cuantos alumnos tienes?");
-		
+
 		Integer numA = sc.nextInt();
 		double notas = 0.00;
 		Double[] notasMedias = new Double[numA + 1];
 		String[] nombreAlumnos = new String[numA + 1];
-		
-		for (int i = 1 ; i <= numA; i++) {
-			
+
+		for (int i = 1; i <= numA; i++) {
+
 			System.out.println("¿Cual es el nombre del Alumno?");
 			String s = sc.nextLine();
 			nombreAlumnos[i] = sc.nextLine();
-			
-			for (int j = 1 ; j <= 3 ; j++) {
-				
+
+			for (int j = 1; j <= 3; j++) {
+
 				System.out.println("Cual es la nota de " + nombreAlumnos[i] + " para el examen " + j);
-				notas = sc.nextDouble();
-				notas = notas + notas;
-				
+				notas += sc.nextDouble();
+
 			}
-			 notasMedias[i] = notas / 3;
+			notasMedias[i] = notas / 3;//Calcula la nota media de un alumno
 		}
 		System.out.println("Listado de notas");
-		
-		for (int p = 1; p < nombreAlumnos.length; p++) {
-			
-			System.out.println("\tAlmuno: " + nombreAlumnos[p] + " - " + "Nota media: " + notasMedias[p] );
-			
+
+		for (int p = 0; p < numA; p++) {
+
+			System.out.println("\tAlmuno: " + nombreAlumnos[p] + " - " + "Nota media: " + notasMedias[p]);
+
 		}
-		
+		int notasTotal = 0;
+		 for (int i = 1; i < nombreAlumnos.length; i++) {
+			 notasTotal += notasMedias[i];
+		}
+		 Integer notasMediaClase = notasTotal / numA;
+		System.out.println("La nota media es: " + notasMediaClase);
 
 		sc.close();
 	}
