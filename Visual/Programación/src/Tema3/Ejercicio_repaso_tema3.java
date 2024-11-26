@@ -62,29 +62,29 @@ public class Ejercicio_repaso_tema3 {
 		// Ejecicio 7
 		// SIN NOVEDADES EN EL FRENTE. VUELVO MAÑANA TARDE NOCHE. TENED PREPARADO EL
 		// PUCHERO.
-		/*
-		 * System.out.println("Escribe tu telegrama y te dire el precio");
-		 * 
-		 * String telegrama = sc.nextLine();
-		 * 
-		 * String[] telegramaSplit = telegrama.replaceAll("\\.",
-		 * " STOP").trim().split("\\.");
-		 * 
-		 * String[] precioTelegrama = telegrama.split(" ");
-		 * 
-		 * for (int i = 0; i < telegramaSplit.length; i++) {
-		 * 
-		 * if(i == telegramaSplit.length) {
-		 * 
-		 * System.out.print(telegramaSplit[i] + " ");
-		 * 
-		 * } else { System.out.println(telegramaSplit[i] + " "); }
-		 * 
-		 * 
-		 * } double precio = PRECIO_FINAL * precioTelegrama.length;
-		 * 
-		 * System.out.println("El precio seria " + precio);
-		 */
+
+		System.out.println("Escribe tu telegrama y te dire el precio");
+
+		String telegrama = sc.nextLine();
+
+		String[] telegramaSplit = telegrama.replaceAll("\\.", " STOP").trim().split("\\.");
+
+		String[] precioTelegrama = telegrama.split(" ");
+
+		for (int i = 0; i < telegramaSplit.length; i++) {
+
+			if (i == telegramaSplit.length) {
+
+				System.out.print(telegramaSplit[i] + " ");
+
+			} else {
+				System.out.println(telegramaSplit[i] + " ");
+			}
+
+		}
+		double precio = PRECIO_FINAL * precioTelegrama.length;
+
+		System.out.println("El precio seria " + precio);
 
 		// Ejercicio8
 		// <html><head/><body><h1>Mi página web</h1><h2>Ej 8 de
@@ -146,7 +146,7 @@ public class Ejercicio_repaso_tema3 {
 				notas += sc.nextDouble();
 
 			}
-			notasMedias[i] = notas / 3;//Calcula la nota media de un alumno
+			notasMedias[i] = notas / 3;// Calcula la nota media de un alumno
 		}
 		System.out.println("Listado de notas");
 
@@ -156,10 +156,10 @@ public class Ejercicio_repaso_tema3 {
 
 		}
 		int notasTotal = 0;
-		 for (int i = 1; i < nombreAlumnos.length; i++) {
-			 notasTotal += notasMedias[i];
+		for (int i = 1; i < nombreAlumnos.length; i++) {
+			notasTotal += notasMedias[i];
 		}
-		 Integer notasMediaClase = notasTotal / numA;
+		Integer notasMediaClase = notasTotal / numA;
 		System.out.println("La nota media es: " + notasMediaClase);
 
 		sc.close();
