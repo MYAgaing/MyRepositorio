@@ -63,28 +63,28 @@ public class Ejercicio_repaso_tema3 {
 		// SIN NOVEDADES EN EL FRENTE. VUELVO MAÑANA TARDE NOCHE. TENED PREPARADO EL
 		// PUCHERO.
 
-		System.out.println("Escribe tu telegrama y te dire el precio");
-
-		String telegrama = sc.nextLine();
-
-		String[] telegramaSplit = telegrama.replaceAll("\\.", " STOP").trim().split("\\.");
-
-		String[] precioTelegrama = telegrama.split(" ");
-
-		for (int i = 0; i < telegramaSplit.length; i++) {
-
-			if (i == telegramaSplit.length) {
-
-				System.out.print(telegramaSplit[i] + " ");
-
-			} else {
-				System.out.println(telegramaSplit[i] + " ");
-			}
-
-		}
-		double precio = PRECIO_FINAL * precioTelegrama.length;
-
-		System.out.println("El precio seria " + precio);
+		/*
+		 * System.out.println("Escribe tu telegrama y te dire el precio");
+		 * 
+		 * String telegrama = sc.nextLine();
+		 * 
+		 * String[] telegramaSplit = telegrama.replaceAll("\\.",
+		 * " STOP").trim().split("\\.");
+		 * 
+		 * String[] precioTelegrama = telegrama.split(" ");
+		 * 
+		 * for (int i = 0; i < telegramaSplit.length; i++) {
+		 * 
+		 * if (i == telegramaSplit.length) {
+		 * 
+		 * System.out.print(telegramaSplit[i] + " ");
+		 * 
+		 * } else { System.out.println(telegramaSplit[i] + " "); }
+		 * 
+		 * } double precio = PRECIO_FINAL * precioTelegrama.length;
+		 * 
+		 * System.out.println("El precio seria " + precio);
+		 */
 
 		// Ejercicio8
 		// <html><head/><body><h1>Mi página web</h1><h2>Ej 8 de
