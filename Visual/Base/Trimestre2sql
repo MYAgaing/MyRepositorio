@@ -1,0 +1,43 @@
+create table barcos(
+    Matricula char(7)check(regexp_like(matricula,'[A-Z]{2} - [0-9]{4}')) primary key ,
+    Nombre varchar2(50),
+    Clase varchar2(50),
+    armador varchar2(50),
+    Capacidad int,
+    nacionalidad varchar2(50)
+);
+create table lotes(
+    codigo char(9) primary key,
+    matricula char(7),
+    num_kg number(5),
+    precio_kilogramo_salida char(5),
+    precio_kilogramo_vendido char(5),
+    fecha_venta date,
+    Cod_especie char(9),
+    foreign key (matricula) references barcos(Matricula) on delete set null
+);
+create table especies(
+    codigo char(9) primary key,
+    Nombre varchar2(50),
+    Tipo varchar2(50),
+    cupo_barco number(10),
+    caladero_ppal varchar2(50)
+);
+alter table lotes add constraint fk_codigo foreign key (Cod_especie) references especies(codigo);
+create table calderos(
+    Codigo char(9) primary key,
+    Nombre varchar2(50),
+    Ubicacion varchar2(50),
+    Especie_ppal char(9)
+);
+alter table calderos add constraint fk_especie foreign key (Especie_ppal) references especies(codigo) on delete set null;
+alter table calderos drop constraint fk_especie;
+create table fechas_capturas(
+    Cod_especie char(9),
+    Cod_caldero char(9),
+    Fecha_inicio date,
+    Fecha_fin date
+);
+alter table fechas_capturas add constraint pk primary key (Cod_especie,Cod_caldero);
+alter table fechas_capturas add constraint fk_cd_especie foreign key (Cod_especie) references especies(codigo);
+alter table fechas_capturas add constraint fk_cd_caldero foreign key (Cod_caldero) references especies(codigo);
