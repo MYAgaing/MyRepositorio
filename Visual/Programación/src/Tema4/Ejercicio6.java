@@ -8,8 +8,8 @@ public class Ejercicio6 {
 		int sum = Calculadora(num1,num2);
 		System.out.println(sum);
 	}
-	public static int Calculadora(int num1 , int num2) {
-		return num1 + num2;
-	}
 
+	public static int Calculadora(int num1, int num2) {
+		return Ejercicio5.suma(num1, num2);
+	}
 }
