@@ -8,8 +8,10 @@ public class Ejercicio10 {
 		System.out.println(obtenerPalabra(hola,1));
 	}
 	public static String obtenerPalabra(String[] hola, Integer num1) {
-		String palabra = hola[num1];
-		return palabra;
+		if (num1 >=0 && num1 < hola.length) {
+			return hola[num1];
+		}
+		return "";
 	}
-
+	
 }

@@ -1,0 +1,5 @@
+Complementos CA1 (darle la vuelta a los números binarios ósea donde un 1 es cero y donde es cero es 1) 101001011
+CA2 = 101001100 (Sumarle una al binario, 1 + 1 = 0 y te llevas una)
+1 0 1 0 0 1 0 1 1
+1 0 1 0 0 1 1 1 1
+1 0 1 0 0 1 1 0 0 

@@ -17,13 +17,13 @@ public class Ejercicio8 {
 	
 
 	public static int calcular(int num1, int num2, String cad) {
-		if (cad == "add") {
+		if (cad.equalsIgnoreCase(add)) {
 			return Ejercicio7.suma(num1, num2);
-		} else if (cad == "rest") {
+		} else if (cad.equalsIgnoreCase(rest)) {
 			return Ejercicio7.restar(num1, num2);
-		} else if (cad == "mul") {
+		} else if (cad.equalsIgnoreCase(mul)) {
 			return Ejercicio7.multiplicar(num1, num2);
-		} else if (cad == "div") {
+		} else if (cad.equalsIgnoreCase(div)) {
 			return Ejercicio7.dividir(num1, num2);
 		}
 		return 0;
