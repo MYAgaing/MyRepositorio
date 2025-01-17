@@ -1,0 +1,12 @@
+declare
+base int := 7;
+altura int := 4;
+resultado int;
+begin
+   /* resultado := (base*altura)/2;
+dbms_output.put_line('El area de un triangulo de base ' || base || ' y altura '|| altura || ' = ' || ((base*altura)/2));*/
+    dbms_output.put_line(sysdate);
+
+    
+end;
+/
