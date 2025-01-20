@@ -1,0 +1,11 @@
+.city_externa:hover {
+    background-color: tomato;
+    color: white;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+    transform: scale(0.5);
+    transition-duration: 1.2s;
+}
+
+.city_externa:hover
