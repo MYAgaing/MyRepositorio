@@ -6,24 +6,50 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
-		
-		
-		Profesor profesor1 = new Profesor();
-		Curso curso1 = new Curso();
-		curso1.setNombre("C1");
-		System.out.println("Dime el nombre del profesor");
-		profesor1.setNombre(sc.nextLine());
-		System.out.println("Digame su edad");
-		profesor1.setEdad(sc.nextInt());
-		Alumno alumno1 = new Alumno();
-		alumno1.setNombre("nico");
-		alumno1.setEdad(11);
-		alumno1.setCurso(curso1);
-		alumno1.setNota(20);
-		System.out.println(alumno1);
-		
-		sc.close();
+
+		Curso c1 = new Curso();
+		c1.setIdentificador(1);
+		c1.setDescripcion("DAM-DAW");
+		Alumno[] alumnos = new Alumno[3];
+
+		for (int i = 0; i < alumnos.length; i++) {
+			Alumno alumno = new Alumno();
+			System.out.println("DNI");
+			String dni;
+			boolean si = true;
+			do {
+				System.out.println("Dime DNI");
+				dni = sc.nextLine();
+				if (!alumno.validarDNI()) {
+					System.out.println("DNI no valido");
+				} else si = true;
+			} while (!si);
+			alumno.setDni(dni);
+			System.out.println("Digame la nota");
+			Integer nota = sc.nextInt();
+			alumno.setNota(nota);
+			System.out.println("Digame el nombre");
+			sc.nextLine();
+			String nombre = sc.nextLine();
+			alumno.setNombre(nombre);
+			System.out.println("Edad");
+			Integer edad = sc.nextInt();
+			sc.nextLine();
+			alumno.setEdad(edad);
+			alumno.setCurso(c1);
+			alumnos[i] = alumno;
+
+		}
+		for (Alumno alumno : alumnos) {
+			System.out.println(alumno);
+		}
+
+		if (alumnos[0].equals(alumnos[1]) || alumnos[0].equals(alumnos[2]) || alumnos[1].equals(alumnos[2])) {
+			System.out.println("2 son iguales");
+		} else {
+			System.out.println("No hay ninguno igual");
+		}
+			sc.close();
 	}
 
 }

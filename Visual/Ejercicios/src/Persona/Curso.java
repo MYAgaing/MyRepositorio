@@ -11,6 +11,15 @@ public class Curso extends Alumno {
 		
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Curso identificador = " + identificador + ", descripcion = " + descripcion;
+	}
+
+
+
 	public Curso(Integer identificador, String descripcion) {
 		super();
 		this.identificador = identificador;
