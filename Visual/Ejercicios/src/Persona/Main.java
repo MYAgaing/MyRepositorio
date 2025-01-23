@@ -11,7 +11,6 @@ public class Main {
 		c1.setIdentificador(1);
 		c1.setDescripcion("DAM-DAW");
 		Alumno[] alumnos = new Alumno[3];
-
 		for (int i = 0; i < alumnos.length; i++) {
 			Alumno alumno = new Alumno();
 			System.out.println("DNI");
@@ -42,6 +41,11 @@ public class Main {
 		}
 		for (Alumno alumno : alumnos) {
 			System.out.println(alumno);
+			if (alumno.validar(alumno)) {
+				System.out.println("Cumple las validaciones");
+			} else {
+				System.out.println("No cumple validaciones");
+			}
 		}
 
 		if (alumnos[0].equals(alumnos[1]) || alumnos[0].equals(alumnos[2]) || alumnos[1].equals(alumnos[2])) {

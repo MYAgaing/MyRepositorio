@@ -1,12 +1,41 @@
+set serveroutput on;
+grant create procedure to ejercicios;
+
 declare
-base int := 7;
-altura int := 4;
-resultado int;
+
+/*nombreEmpleado emp.ename%type;
+puestoEmpleado emp.job%type;
+filaEmpleado emp%rowtype;*/
+
+/*fecha date;
+fecha2 date := '03/04/2021';
+numero number(3) := 234; 
+numero2 number(4,2) := 10.99;
+variable varchar2(50) := 'Clase de DAW';
+numero3 constant number := 11;
+variable4  EMP.ENAME%TYPE := 'Carlos';
+variable5 EMP%ROWTYPE;*/
 begin
-   /* resultado := (base*altura)/2;
-dbms_output.put_line('El area de un triangulo de base ' || base || ' y altura '|| altura || ' = ' || ((base*altura)/2));*/
-    dbms_output.put_line(sysdate);
+   /*select ename,job into nombreEmpleado, puestoEmpleado from emp where empno = 7839;
+   select ename,job into filaEmpleado.ename, filaempleado.job from emp where empno = 7839;
+   dbms_output.put_line(filaEmpleado.ename);
+    dbms_output.put_line(nombreEmpleado);
+    dbms_output.put_line(puestoEmpleado);
+    dbms_output.put_line(fecha);
+    dbms_output.put_line(fecha2);
+    dbms_output.put_line(variable);
+    dbms_output.put_line(numero3);
+    dbms_output.put_line(numero);
+    dbms_output.put_line(numero2);
+    dbms_output.put_line(variable4);*/
+    dbnm_output.put_line(myFuncion());
+
 
     
 end;
 /
+create or replace Function myFuncion(varchar nombre,varchar apellido){
+    nombre varchar(10) := &nombre;
+    apeellido varchar(10) := &apellido;
+    return  dbnm_output.put_line('Ha sido creado con exito')
+}

@@ -4,13 +4,16 @@ public class Curso extends Alumno {
 
 	private Integer identificador;
 	private String descripcion;
+	private Alumno[] numAlumnos;
 	
 	
 	
 	public Curso() {
 		
 	}
-	
+	public Curso(Integer numAlumnos) {
+		Alumno = new Alumno[numAlumnos];
+	}
 	
 	
 	@Override
@@ -39,7 +42,12 @@ public class Curso extends Alumno {
 		this.descripcion = descripcion;
 	}
 	
-	
+	for(int i = 0; i < alumnos.length; i++) {
+		if (alumnos[i] == null) {
+			alumnos[i] = alumno;
+			return;
+		}
+	}
 	
 	
 	
