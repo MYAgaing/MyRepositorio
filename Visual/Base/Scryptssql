@@ -27,15 +27,43 @@ begin
     dbms_output.put_line(numero3);
     dbms_output.put_line(numero);
     dbms_output.put_line(numero2);
-    dbms_output.put_line(variable4);*/
-    dbnm_output.put_line(myFuncion());
+    dbms_output.put_line(variable4);*/   
+end;
+/   
 
 
-    
+set define off;
+
+create or replace Function crear_alumno
+return varchar2
+is
+v_nombre varchar2(100);
+v_apellidos varchar2(100);
+v_edad int;
+v_curso int;
+begin
+v_nombre := '&nombre';
+v_apellidos := '&apellidos';
+v_edad := &edad;
+v_curso := &curso;
+
+insert into Alumnos (nombre,apellidos,edad,curso) values (v_nombre,v_apellidos,v_edad,v_curso);
+return 'Creado correctamente';
+exception
+when others then
+return 'Error' || SQLERRM;
 end;
 /
-create or replace Function myFuncion(varchar nombre,varchar apellido){
-    nombre varchar(10) := &nombre;
-    apeellido varchar(10) := &apellido;
-    return  dbnm_output.put_line('Ha sido creado con exito')
-}
+
+set SERVEROUTPUT on;
+declare 
+mensaje varchar2(200);
+begin 
+mensaje := crear_alumno;
+dbms_output.put_line(mensaje);
+end;
+/
+grant execute on crear_alumno to ejercicios;
+
+
+
