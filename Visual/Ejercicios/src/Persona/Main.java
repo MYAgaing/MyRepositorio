@@ -1,5 +1,7 @@
 package Persona;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -10,9 +12,9 @@ public class Main {
 		Curso c1 = new Curso();
 		c1.setIdentificador(1);
 		c1.setDescripcion("DAM-DAW");
-		Alumno[] alumnos = new Alumno[3];
-		for (int i = 0; i < alumnos.length; i++) {
-			Alumno alumno = new Alumno();
+		List<Alumno> alumnos = new ArrayList<>();
+		//Alumno[] alumnos = new Alumno[3];
+		for (int i = 0; i < 3; i++) {
 			System.out.println("DNI");
 			String dni;
 			boolean si = true;
@@ -36,7 +38,7 @@ public class Main {
 			sc.nextLine();
 			alumno.setEdad(edad);
 			alumno.setCurso(c1);
-			alumnos[i] = alumno;
+			alumnos.add(alumno);
 
 		}
 		for (Alumno alumno : alumnos) {
