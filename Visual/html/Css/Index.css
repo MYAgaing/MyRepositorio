@@ -1,0 +1,28 @@
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    width: auto;
+    color: white;
+    text-decoration: none;
+}
+
+nav {
+    text-align: center;
+    margin-left: 10px;
+    margin: 15px;
+    background-color: black;
+}
+
+div {
+    text-align: center;
+
+}
+
+iframe {
+    width: 100%;
+    height: 600px;
+    border: solid 2px green;
+    margin: 10px;
+}

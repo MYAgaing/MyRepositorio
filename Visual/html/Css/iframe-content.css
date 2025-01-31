@@ -1,0 +1,18 @@
+h2 {
+    color: orange;
+}
+
+div#S1,
+#S2,
+#S3 {
+    border-radius: 8px;
+    background-color: pink;
+    border: solid 1px #ddd;
+    margin: 50px;
+    padding: 20px;
+
+}
+
+h1 {
+    text-align: center;
+}

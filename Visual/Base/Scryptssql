@@ -1,6 +1,6 @@
 set serveroutput on;
 grant create procedure to ejercicios;
-
+/*
 declare
 
 /*nombreEmpleado emp.ename%type;
@@ -14,7 +14,7 @@ numero2 number(4,2) := 10.99;
 variable varchar2(50) := 'Clase de DAW';
 numero3 constant number := 11;
 variable4  EMP.ENAME%TYPE := 'Carlos';
-variable5 EMP%ROWTYPE;*/
+variable5 EMP%ROWTYPE;
 begin
    /*select ename,job into nombreEmpleado, puestoEmpleado from emp where empno = 7839;
    select ename,job into filaEmpleado.ename, filaempleado.job from emp where empno = 7839;
@@ -27,12 +27,9 @@ begin
     dbms_output.put_line(numero3);
     dbms_output.put_line(numero);
     dbms_output.put_line(numero2);
-    dbms_output.put_line(variable4);*/   
+    dbms_output.put_line(variable4);  
 end;
-/   
-
-
-set define off;
+/ */  
 
 create or replace Function crear_alumno
 return varchar2
@@ -57,10 +54,9 @@ end;
 
 set SERVEROUTPUT on;
 declare 
-mensaje varchar2(200);
+
 begin 
-mensaje := crear_alumno;
-dbms_output.put_line(mensaje);
+dbms_output.put_line(crear_alumno());
 end;
 /
 grant execute on crear_alumno to ejercicios;
