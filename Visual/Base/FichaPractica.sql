@@ -6,7 +6,7 @@ create table tabla(
     numero int, --numeros enteros
     numeros number(4 , 2), --numeros normales y decimales
     fecha date, --datatype fecha
-    numer nchar(50),
+    numer char(50),
     numeroide nvarchar2(50),
     caracteres char(50)
 );
