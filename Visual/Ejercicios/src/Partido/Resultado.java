@@ -3,18 +3,30 @@ package Partido;
 import java.util.Objects;
 
 public class Resultado {
-
 	private Integer golesLocales;
-	private Integer golesVisitante;
+	private Integer golesVisitantes;
 	
 	public Resultado() {
-		this.golesLocales = 0;
-		this.golesVisitante = 0;
+		golesLocales = 0;
+		golesVisitantes = 0;
+	}
+	
+	public Integer getGolesLocales() {
+		return golesLocales;
+	}
+	public void setGolesLocales(Integer golesLocales) {
+		this.golesLocales = golesLocales;
+	}
+	public Integer getGolesVisitantes() {
+		return golesVisitantes;
+	}
+	public void setGolesVisitantes(Integer golesVisitantes) {
+		this.golesVisitantes = golesVisitantes;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(golesLocales, golesVisitante);
+		return Objects.hash(golesLocales, golesVisitantes);
 	}
 
 	@Override
@@ -26,37 +38,35 @@ public class Resultado {
 		if (getClass() != obj.getClass())
 			return false;
 		Resultado other = (Resultado) obj;
-		return Objects.equals(golesLocales, other.golesLocales) && Objects.equals(golesVisitante, other.golesVisitante);
+		return Objects.equals(golesLocales, other.golesLocales)
+				&& Objects.equals(golesVisitantes, other.golesVisitantes);
 	}
-
+	
 	@Override
 	public String toString() {
-		return golesLocales + " - " + golesVisitante;
+		return golesLocales + " - " + golesVisitantes;
 	}
+	
 	public Boolean isVictoriaLocal() {
-		return golesLocales>golesVisitante;
+//		if( golesLocales > golesVisitantes ) {
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+		// En una sola lnea... 
+		return golesLocales > golesVisitantes;
+
 	}
-	public Boolean isVictoriaVisitante(){
-		return golesLocales<golesVisitante;
+	public Boolean isVictoriaVisitante() {
+		return golesLocales < golesVisitantes;
 	}
 	public Boolean isEmpate() {
-		return golesLocales.equals(golesVisitante);
-	}
-
-	public Integer getGolesLocales() {
-		return golesLocales;
-	}
-
-	public void setGolesLocales(Integer golesLocales) {
-		this.golesLocales = golesLocales;
-	}
-
-	public Integer getGolesVisitante() {
-		return golesVisitante;
-	}
-
-	public void setGolesVisitante(Integer golesVisitante) {
-		this.golesVisitante = golesVisitante;
+		return golesLocales.equals(golesVisitantes);
 	}
 	
 }
+
+
+
+
