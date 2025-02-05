@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <title>Ejemplo de código JavaScript en el propio documento</title>
+</head>
+<body>
+ <p onclick="console.log('Un mensaje de prueba')">Un párrafo de texto.</p>
+ <p onclick="window.alert('Alerta de mensaje')">windows alert</p>
+ <p onclick="document.write('Hola que tal')">Texto a escribir</p>
+ <script type="text/JavaScript">
+    const PI = 3.141592;
+   var nombre = 'Juan';
+   if(nombre){
+    let nombre = 'Pedro';
+    console.log(nombre, 'dentro del IF')
+   }
+   console.log(nombre, 'fuera del IF');
+   var dia = 'lunes'
+   console.log("Hoy es " + dia);
+   var lower = 'TOLOWERCASE';
+   var toLower = lower.toLowerCase();
+   console.log(toLower);
+   var numero = 12.123;
+   console.log(numero.toFixed());
+   console.log(9+4+"10");
+   let x='2';
+let y='3';
+console.log(Number(x) + Number(y));
+let resultado = confirm("Acepta las condificones");
+let resultado2 = prompt("Escribe");
+ let pi = Math.PI;
+ let aleatorio = Math.floor(Math.random()*10 );
+ console.log(aleatorio);
+ </script>
+ <p onclick="console.log(x)">valor de x</p>
+  <p onclick="console.log(typeof 12, typeof 12.3, typeof (12*3), typeof 'Hola', typeof Hola, typeof (1/0), typeof null, typeof [1,2,3,4], typeof true, typeof (12>3))">Tipos de datos</p>
+ <img src="../Visual/html/Imagen/wild_oliva.png" alt="Fondo" onclick="window.alert('Fondo de pantalla')">
+ <p onclick="window.open('https://chatgpt.com/c/675eb706-b80c-800a-89cd-845571a1b903','Chatgpt','toolbar=1')">Nueva ventana</p>
+</body>
+</html
