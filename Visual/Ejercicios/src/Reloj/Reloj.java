@@ -1,5 +1,7 @@
 package Reloj;
 
+import java.util.Objects;
+
 public class Reloj {
 
 	private Integer hora;
@@ -8,9 +10,9 @@ public class Reloj {
 	private Boolean formato24hora;
 
 	public Reloj() {
-		this.hora = 00;
-		this.minuto = 00;
-		this.segundo = 00;
+		this.hora = 0;
+		this.minuto = 0;
+		this.segundo = 0;
 		this.formato24hora = true;
 	}
 
@@ -47,9 +49,10 @@ public class Reloj {
 		this.hora = hora;
 		this.minuto = minuto;
 		this.segundo = segundo;
+		this.formato24hora = true;
 	}
 
-	public Boolean Check(Integer hora, Integer minuto, Integer segundo) {
+	public Boolean Check() {
 		if (hora > 0 && hora < 23) {
 			if (minuto > 0 && minuto < 59) {
 				if (segundo > 0 && minuto < 59) {
@@ -59,10 +62,39 @@ public class Reloj {
 		}
 		return false;
 	}
+
 	@Override
 	public String toString() {
-		if(formato24hora == true) {return hora + ":" + minuto + ":" + segundo;}
-		return "Reloj [hora=" + hora + ", minuto=" + minuto + ", segundo=" + segundo + ", formato24hora="
-				+ formato24hora + "]";
+		if (!Check()) {
+			return "La hora no es correcta";
+		}
+		if (formato24hora) {
+			return hora + ":" + minuto + ":" + segundo;
+		} else {
+			if (hora <= 12) {
+				return hora + ":" + minuto + ":" + segundo + " AM";
+			} else {
+				return (hora - 12) + ":" + minuto + ":" + segundo + " PM";
+			}
+		}
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(hora, minuto, segundo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reloj other = (Reloj) obj;
+		return Objects.equals(hora, other.hora) && Objects.equals(minuto, other.minuto)
+				&& Objects.equals(segundo, other.segundo);
+	}
+	
 }
