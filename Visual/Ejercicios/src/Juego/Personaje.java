@@ -5,8 +5,6 @@ public abstract class Personaje {
 	private String codigo;
 	protected Integer vida;
 	
-	public abstract void vidas();
-	
 	
 	public String getNombre() {
 		return nombre;
