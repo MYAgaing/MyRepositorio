@@ -2,7 +2,7 @@ package Juego;
 
 public abstract class Personaje {
 	private String nombre;
-	private Integer codigo;
+	private String codigo;
 	protected Integer vida;
 	
 	public abstract void vidas();
@@ -14,10 +14,10 @@ public abstract class Personaje {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Integer getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
