@@ -16,6 +16,10 @@ public class Articulos {
 	public void setPrecio(Integer precio) {
 		this.precio = precio;
 	}
+	@Override
+	public String toString() {
+		return "Articulos [descripcion=" + descripcion + ", precio=" + precio + "]";
+	}
 	
 	
 }

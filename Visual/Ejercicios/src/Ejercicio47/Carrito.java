@@ -41,7 +41,7 @@ public class Carrito {
 			return total;
 	}
 
-	public Integer precioMedio() {
+	public Integer precioMedio(Ropa ropa1) {
 		Integer precioMedio;
 		return precioMedio = getTotal()/articulos.size();
 	}
@@ -60,5 +60,6 @@ public class Carrito {
 	public void vaciarCesta() {
 		articulos.clear();
 	}
+	
 	
 }
