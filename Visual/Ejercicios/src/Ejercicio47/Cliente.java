@@ -7,7 +7,8 @@ public class Cliente extends Carrito{
 	private String dni;
 	private String nombre;
 	
-	public Cliente(String dni,String nombre) {
+	
+	public Cliente(String dni,String nombre){
 		fecha_creacion = LocalDate.now();
 		fecha_ultima = LocalDate.now();
 		
