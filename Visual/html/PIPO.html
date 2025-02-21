@@ -15,23 +15,36 @@
         <div>
             <textarea name="" id="" cols="30" rows="10" placeholder="Escribe algo"></textarea>
 
-            </textarea>
+            </textarea><br>
             <input type="submit" value="enviar">
         </div>
 
+        <input type="button" value="Boton" onclick="alert('El madafaquin button')">
     </form>
+    <h2>Formulario con Agrupación de campos</h2>
+    <p>Datos personales:</p>
+    <form action="https://www.w3schools.com/action_page.php">
+    </form>
+    <fieldset>
+        <legend>Datos personales:</legend>
+        <label for="Nombre">Nombre:</label><br>
+        <input type="text" name="Nombre" id="Nombre" value="Nombre"><br>
+        <label for="Apellido">Apellidos:</label><br>
+        <input type="text" name="Apellido" id="Apellido" value="Apellido"><br>
+        <label for="Curso">Selecciona un curso</label><br>
+        <input list="Curso"></input>
+        <datalist id="Curso">
+            <option value="Mama"></option>
+            <option value="Papa"></option>
+            <option value="Tumbalacasamami"></option>
+            <option value="Aywanabunbanbaninyourbody"></option>
+        </datalist>
+    </fieldset>
+    <input type="submit" value="enviar" id="Enviar">
     <style>
         h2 {
             text-align: center;
             color: #4d77ca;
-        }
-
-        textarea {
-            padding: 10px;
-            background-color: rgb(25, 78, 78);
-            border-radius: 10px;
-            color: white;
-            border: solid 10px rgb(4d, 77, ca);
         }
 
         div {
@@ -44,7 +57,37 @@
             padding: 10px;
             margin-left: ;
             font-family: Arial, sans-serif;
-            text-align: center;
+            background-color: #effbfc;
+        }
+
+
+        #Apellido,
+        #Nombre {
+            border: black solid 1px;
+            background-color: #256779;
+            color: white;
+            border-radius: 10px 10px 10px 10px;
+            border-color: blue;
+            padding: 10px;
+        }
+
+        fieldset {
+            border: solid grey 1px;
+            border-radius: 10px 10px 10px 10px;
+            background-color: #b4e7ed;
+        }
+
+        legend {
+            background-color: #b4e7ed;
+            border: solid grey 1px;
+            border-radius: 10px 10px 10px 10px;
+            padding: 10px;
+        }
+
+        input#Enviar {
+            background-color: #b4e7ed;
+            border-radius: 15px 15px 15px 15px;
+            padding: 10px;
         }
     </style>
 </body>
