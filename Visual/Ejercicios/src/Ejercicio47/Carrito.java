@@ -1,5 +1,6 @@
 package Ejercicio47;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
@@ -34,23 +35,28 @@ public class Carrito {
 		return articulos;
 	}
 
-	public int getCantidad() {
-		return articulos.size();
+	public BigDecimal getCantidad() {
+		BigDecimal total2 = BigDecimal.ZERO;
+		for (Articulos articulos2 : articulos) {
+			BigDecimal uno = BigDecimal.ONE;
+			total2 = total2.add(uno);
+		};
+		return total2;
 	}
 
-	public Integer getTotal() {
-		Integer total = 0;
+	public BigDecimal getTotal() {
+		BigDecimal total = BigDecimal.ZERO;
 			for (Articulos articulo : articulos) {
-				total += articulo.getPrecio();
+				total = total.add(articulo.getPrecio());
 			}
 			return total;
 	}
 
-	public Integer precioMedio() {
-		if (getCantidad() == 0) {
-			return 0;
+	public BigDecimal precioMedio() {
+		if (getCantidad() == BigDecimal.ZERO) {
+			return BigDecimal.ZERO;
 		}
-		return getTotal() / getCantidad();
+		return getTotal().divide(getCantidad());
 	}
 
 	@Override

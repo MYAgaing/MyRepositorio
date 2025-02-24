@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Console.console;
+import console.console;
 
 public class BigMoma {
 
@@ -23,10 +23,9 @@ public class BigMoma {
 				big.add(x1);
 			} while (big.get(i).min(x1).equals(x1));
 		}
-		Integer num = 0;
-		BigDecimal total = new BigDecimal(num);
+		BigDecimal total = BigDecimal.ZERO;
 		for (BigDecimal bigDecimal : big) {
-			total.add(bigDecimal);
+			total = total.add(bigDecimal);
 		}
 		console.log(total);
 		console.log(big.get(0).divide(big.get(1), 3, RoundingMode.HALF_UP));

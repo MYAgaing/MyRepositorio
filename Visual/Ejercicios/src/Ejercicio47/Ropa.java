@@ -1,11 +1,13 @@
 package Ejercicio47;
 
+import java.math.BigDecimal;
+
 public class Ropa extends Articulos{
 
 	private String talla;
 	private String color;
 	
-	public Ropa(Integer precio,String nombre,String talla,String color) {
+	public Ropa(BigDecimal precio,String nombre,String talla,String color) {
 		
 	}
 
