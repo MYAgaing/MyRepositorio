@@ -1,0 +1,65 @@
+CREATE TABLE proveedores (
+    id       INT PRIMARY KEY,
+    nombre   VARCHAR2(100),
+    telefono VARCHAR2(12),
+    id_pieza INT
+);
+
+ALTER TABLE proveedores
+    ADD CONSTRAINT fk_piezas FOREIGN KEY ( id_pieza )
+        REFERENCES piezas ( idpie );
+
+INSERT INTO proveedores VALUES ( 1,
+                                 'tornillos S.L',
+                                 NULL,
+                                 1 );
+
+INSERT INTO proveedores VALUES ( 2,
+                                 'motores slu',
+                                 '+34111111111',
+                                 12 );
+
+INSERT INTO proveedores VALUES ( 3,
+                                 'frenos lowcost',
+                                 NULL,
+                                 13 );
+update proveedores set telefono ('+34640530630');
+delete proveedores where id = 2;
+
+--ejercicio 2
+select Trim(LOWER(substr(nombre_empresa,1,instr(nombre_empresa,' ')))) from clientes where CIF not in ('A%','E%','O%','I%','U%');
+select initcap(nombre) from piezas where nombre not in ('A%','E%','O%','I%','U%') and estado = 'NUEVA';
+select concat(max(cantidad) - min(cantidad), ' unidades') "Diferencia total" from piezas_maquinas;
+select trim(LOWER(replace(replace(replace(nombre,'industrial',''),'para',''),'de',''))) || '.'  from maquinas;
+select distinct(nombre) from maquinas join avances_lineas_fabricacion on avances_lineas_fabricacion.id_maquina = maquinas.ref where estado = 'MONTAJE' and fecha between '01/febrero/2024' and '01/marzo/2024';
+select lower(nombre) from piezas where tipo = 'MECANICO' and estado = '2MANO';
+select distinct(*) from piezas order by nombre desc;
+select upper(idpie),upper(nombre),upper(tipo),upper(estado) from piezas where estado = '2MANO';
+select count(*) from avances_lineas_fabricacion where fecha = next_Day(fecha,'domingo');
+select nombre, decode(t_fabricacion,99,'POCO',between 100 and 999,'MUCHO',null)  from maquinas;
+select upper(replace(nombre_empresa,' ','')),loc from clientes;
+select nombre from maquinas where ref = (select id from avances_lineas_fabricacion where fecha = '11/11/2023' and hora = '20:05');
+
+set serveroutput on;
+declare
+fecha date := '&Diga_una_fecha_en_formato(dia/mes/año)';
+begin
+
+end;
+/
+declare
+fechas date := '&date';
+begin
+if fechas = avances_lineas_fabricacion.fecha then dbms_output.put_line ( 'Hay' );
+ELSE
+    dbms_output.put_line ( 'No hay avances para ese dia' ) end if;
+end;
+/
+declare
+fechas date := &date;
+begin
+if fechas in (avances_lineas_fabricacion.fecha) then dbms_output.put_line ( 'Hay ' || (select count(*) from avances_lineas_fabricacion where fecha = fechas) || 'avances en la fecha ' || fechas );
+ELSE
+    dbms_output.put_line ( 'No hay avances para ese dia' ) end if;
+end;
+/

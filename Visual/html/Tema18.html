@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fomulario</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>
+            <h2>Formulario con distintos tipos de campos</h2>
+        </legend>
+        <form action="https://www.w3schools.com/action_page.php">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="password" placeholder="Contraseña"><br>
+            <input type="reset" value="Borrar"><br>
+            <input type="radio" name="opciones" id="HTML" value="HTML">
+            <label for="HTML">HTML</label><br>
+            <input type="radio" name="opciones" id="CSS" value="CSS">
+            <label for="CSS">CSS</label><br>
+            <input type="radio" name="opciones" id="Javascript" value="Javascript">
+            <label for="Javascript">Javascript</label><br>
+            <input type="checkbox" name="Azul" id="Azul" value="Azul">
+            <label for="Azul">Azul</label><br>
+            <input type="checkbox" name="Colores" id="Rojo" value="Rojo">
+            <label for="Rojo">Rojo</label><br>
+            <input type="checkbox" name="Colores" id="Verde" value="Verde">
+            <label for="Verde">Verde</label><br>
+            <input type="submit" value="Enviar"><br>
+            <label for="color">Seleccion el color:</label>
+            <input type="color" name="color" id="color"><br>
+            <label for="fecha">Fecha de nacimiento:</label>
+            <input type="date" name="fecha" id="fecha"><br>
+            <label for="correo">Introduzca su correo electronico</label>
+            <input type="email" name="correo" id="correo"><br>
+            <input type="datetime-local" name="hora" id="hora"><br>
+            <input type="image" src="./Imagen/velkana.jpeg" alt="velkana" width="100px"><br>
+            <label for="fichero">Selecciona un archivo:</label>
+            <input type="file" name="fichero" id="fichero">
+            <input type="hidden" name="oculto"><br>
+            <input type="month" name=" mes" id="mes"><br>
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad" min="18" max="100"><br>
+            <input type="button" value="Pulsame" id="Pulsame" onclick="alert('Hola, bienvenido')">
+
+        </form>
+    </fieldset>
+    <!--<script>
+        document.getElementById("Pulsame").onclick = function () {
+            alert("Pulsaste Hola botón");
+        }
+    </script>-->
+
+    <style>
+        h2 {
+            color: #b49967;
+        }
+
+        input[type="text"],
+        [type="date"],
+        [type="email"] {
+            background-color: #cab48c;
+            border-radius: 8px 8px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        input[type="password"] {
+            background-color: #cab48c;
+            border-radius: 8px 8px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        body {
+            background-color: #dfd0b7;
+        }
+
+        input[type="submit"] {
+            background-color: #b1a99a;
+            border-radius: 8px 8px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        input[type="reset"] {
+            background-color: #b1a99a;
+        }
+
+        fieldset {
+            border: 1px solid #b49967;
+            text-align: center;
+        }
+
+        legend {
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
