@@ -13,12 +13,14 @@
             <h2>Formulario con distintos tipos de campos</h2>
         </legend>
         <form action="https://www.w3schools.com/action_page.php">
+            <input type="button" value="Habilitar o desabilitar" onclick="pulsarBoton">
             <label for="nombre">Nombre:</label><br>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" disabled><br>
             <label for="password">Password:</label><br>
             <input type="password" name="password" id="password" placeholder="Contraseña"><br>
             <input type="reset" value="Borrar"><br>
-            <input type="radio" name="opciones" id="HTML" value="HTML">
+            <input type="radio" name="HTML" id="HTML" value="HTML">
+
             <label for="HTML">HTML</label><br>
             <input type="radio" name="opciones" id="CSS" value="CSS">
             <label for="CSS">CSS</label><br>
@@ -49,11 +51,13 @@
 
         </form>
     </fieldset>
-    <!--<script>
-        document.getElementById("Pulsame").onclick = function () {
-            alert("Pulsaste Hola botón");
+    <script>
+
+        function pulsarBoton() {
+            document.getElementById("nombre").disabled = !(document.getElementById("nombre").disabled);
         }
-    </script>-->
+
+    </script>
 
     <style>
         h2 {

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Expand Input</title>
+    <style>
+        .input-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        #hidden-span {
+            position: absolute;
+            visibility: hidden;
+            white-space: pre;
+            font-size: 16px;
+            font-family: inherit;
+            padding: 5px;
+        }
+
+        #expandable-input {
+            width: 50px;
+            /* Ancho inicial */
+            min-width: 50px;
+            max-width: 100%;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="input-container">
+        <span id="hidden-span"></span>
+        <input type="text" id="expandable-input" oninput="adjustWidth()" placeholder="Escribe aquí...">
+    </div>
+
+    <script>
+        function adjustWidth() {
+            const input = document.getElementById("expandable-input");
+            const span = document.getElementById("hidden-span");
+
+            span.textContent = input.value || input.placeholder; // Copia el texto del input
+            input.style.width = span.offsetWidth + "px"; // Ajusta el ancho del input
+        }
+    </script>
+
+</body>
+
+</html>
