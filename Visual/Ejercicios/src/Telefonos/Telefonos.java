@@ -6,7 +6,7 @@ public class Telefonos {
 	protected Boolean enLlamada;
 	
 	public Integer consultarNumero() {
-		return numero;
+		return this.numero;
 	}
 	
 	public void marcar(Integer numero) {
