@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./estillos/estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen 3º Trimestre</title>
+    <link rel="shortcut icon" href="./imagenes/imagen.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <a href="Noticias">
+                    <li>Noticias</li>
+                </a>
+                <a href="Cuestionario">
+                    <li>Cuestionario</li>
+                </a>
+                <a href="Configuracion">
+                    <li>Configuracion</li>
+                </a>
+                <a href="Sujerencias">
+                    <li>Sugerencias</li>
+                </a>
+                <a href="Login">
+                    <li>Login</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="#Noticias">
+            <article>
+                <h2>Rafael Nada vuelve a competir en Barcelona</h2>
+                <img src="https://www.cronicabalear.es/access/public/img/noticias/upload/0_1713291379.jpg"
+                    alt="Rafael Nadal">
+                <figcaption>Rafael Nadal en el Godó</figcaption>
+                <p>El tenista español, Rafa Nadal, muestra su alegría al finalizar su
+                    partido de primera ronda del Barcelona Open Banc Sabadell - Trofeo Conde
+                    de Godó de tenis disputado este martes ante el italiano Flavio Cobolli.
+                    Rafael Nadal ganó (2-6 y 3-6).</p>
+            </article><br>
+            <div>
+                <h2>Comienza la Feria de Abril de Sevilla</h2>
+                <img src="https://s3.abcstatics.com/abc/www/multimedia/sevilla/2024/04/13/portada_iluminada-U60867637123dC-RWEhRjatrQxE9EM3LcT35vJ-1200x840@diario_abc.jpeg"
+                    alt="Feia de Sevilla">
+                <figcaption>La feria de Abril de Sevilla</figcaption>
+                <p>A las doce en punto de la noche, las 25.000 bombillas de la portada
+                    de la Feria de Abril de Sevilla se encenderán en el real de Los Remedios
+                    con la prueba del Alumbrado para dar comienzo a una fiesta universal, que
+                    fue declarada de interés turístico internacional en 1980. Antes muchos
+                    sevillanos y visitantes habrán disfrutado ya de la tradicional cena del
+                    Pescaíto, en la que los socios de las casetas vuelven a reencontrarse, a
+                    saborear la típica gastronomía feriante y a vivir una de las mejores
+                    semanas del año.</p>
+            </div>
+            <div>
+                <h2>la fortuna del chico de oro de la television</h2>
+                <img src="https://content20.lecturas.com/medio/2024/04/16/david-broncano_72686e85_240416101036_1280x720.jpg"
+                    alt="la fortuna del chico de oro de la television">
+                <p>Ha firmado por dos años por TVE a cambio de 28 millones para
+                    competir con Pablo Motos. Su suculento contrato se sumará a su buen
+                    Patrimonio: tiene dos áticos en Madrid y una productora de éxito.</p>
+            </div>
+        </section>
+        <form action="https://www.w3schools.com/action_page.php">
+            <fieldset>
+                <legend>Cuestionario(Datos personales)</legend>
+                <label for=" nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+                <label for=" apellidos ">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required size="100"><br>
+                <label for="Fecha de nacimiento"> Fecha de nacimiento:</label>
+                <input type="date" name=" fecha de nacimiento" id="fecha de nacimiento" required min="01/01/1900"><br>
+                <label for="direccion">direccion</label>
+                <input type="text" name="direccion" id="direccion" required size="120"><br>
+                <label for="Telefono"> Telefono (xxxxxxxxx)</label>
+                <input type="tel" name="telefono" id="telefono" required pattern="[0-9]{9}"><br>
+                <label for="Codigo postal"> Codigo postal (xxxxx):</label>
+                <input type="number" name="codigo postal" id="codigo postal" required pattern="[0-9]{5}"><br>
+                <label for="Sexo">Sexo:</label>
+                <input type="radio" id="Sexo" name="Hombre" value="Hombre">
+                <label for="Hombre">Hombre</label>
+                <input type="radio" name="Sexo" id="Sexo" value="Mujer">
+                <label for="Mujer">Mujer</label>
+                <label for="Idiomas">Idiomas:</label>
+                <input type="checkbox" name="Ingles" id="Ingles" value="Ingles">
+                <label for="Ingles">Ingles</label>
+                <input type="checkbox" name="frances" id="frances" value="frances">
+                <label for="frances">frances</label>
+                <input type="checkbox" name="aleman" id="aleman" value="aleman">
+                <label for="aleman">aleman</label>
+                <input type="checkbox" name="italiano" id="italiano" value="italiano">
+                <label for="italiano">italiano</label>
+                <input type="checkbox" name="otros" id="otros">
+                <label for="otros">otros</label>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpiar">
+            </fieldset>
+        </form>
+        <form action="https://www.w3schools.com/action_page.php">
+            <fieldset>
+                <legend>Configuracion</legend>
+                <label for="SubirImagen">SubirImagen</label>
+                <input type="file" id="SubirImagen" name="SubirImagen">
+                <label for="color">Seleccione el color de fondo</label>
+                <input type="color" name="color" id="color">
+                <label for="rango">Seleccionar el contraste (entre el 0 y el 100)</label>
+                <input type="range" name="rango" id="rango" min="0" max="100" step="10">
+                <label for="refresco">Introduzca un numero de refresco (entre 1 a 10) segundos:</label>
+                <input type="text" name="refresco" id="refresco" min="1" max="10">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpiar">
+            </fieldset>
+        </form>
+        <form action="https://www.w3schools.com/action_page.php">
+            <fieldset>
+                <legend>Sugerencias</legend>
+                <label for="Sugerencias">Escribe cualquier sugerencia:</label>
+                <textarea name="Sugerencias" id="Sugerencias" cols="50" rows="10"></textarea>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpiar">
+            </fieldset>
+        </form>
+        <form action="https://www.w3schools.com/action_page.php">
+            <fieldset>
+                <legend>Login</legend>
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="usuario" id="usuario" required>
+                <label for=" contraseña">Contraseña:</label>
+                <input type="text" name=" contraseña" id="contraseña" required>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <p>&copy;2024 Mi pagina web Nicolas Adones Nuñez. Todos los derechos reservados</p>
+    </footer>
+</body>
+
+</html>
