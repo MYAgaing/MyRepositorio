@@ -1,0 +1,14 @@
+h2 {
+    text-align: center;
+    color: aquamarine;
+}
+
+body {
+    margin-left: 10px;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+}
+
+#myCanvas {
+    border: solid 1px black;
+}

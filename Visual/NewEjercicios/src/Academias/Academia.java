@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Academia {
+public class Academia{
 
 	private String Ciudad;
 	private String telefono;
