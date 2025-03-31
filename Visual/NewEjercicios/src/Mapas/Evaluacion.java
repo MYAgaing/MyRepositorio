@@ -73,6 +73,10 @@ public class Evaluacion {
 		Set<Entry<String, BigDecimal>> alumnos = notas.entrySet();
 		List<String> dnis = new ArrayList<>();
 		for (Entry<String, BigDecimal> alumno : alumnos) {
+			/*
+			 * if (alumno.getValue().compareTo(5) < 0){
+			 * dnis.add(alumno.getKey())
+			 * */
 			if (alumno.getValue().intValue() < 5) {
 				dnis.add(alumno.getKey());
 			}
