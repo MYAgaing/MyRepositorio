@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier</title>
+</head>
+
+<body>
+
+    <img src="./Imagenes/k9YDPWJJCXsYU4FLKMAcUGDhrOQTGcXkAp1Hl_-ZUKFjbO4EUfMEwa93DKb7zCWubLnCCUjbeVlkUI0d86LWJQ.webp"
+        alt="Imagen 1" class="imagen-desplegable">
+
+    <fieldset class="informacion-desplegable">
+        <legend>Información de la imagen</legend>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed,
+            convallis ex.</p>
+    </fieldset>
+
+    <script>
+        // Selecciona la imagen desplegable
+        const imagenDesplegable = document.querySelector('.imagen-desplegable');
+
+        // Selecciona el fieldset desplegable
+        const informacionDesplegable = document.querySelector('.informacion-desplegable');
+
+        // Agrega un evento de clic a la imagen desplegable
+        imagenDesplegable.addEventListener('click', () => {
+            // Agrega la clase "mostrar" al fieldset desplegable para mostrarlo
+            informacionDesplegable.classList.add('mostrar');
+        });
+
+        // Agrega un evento de clic al fieldset desplegable para ocultarlo
+        informacionDesplegable.addEventListener('click', () => {
+            // Elimina la clase "mostrar" del fieldset desplegable para ocultarlo
+            informacionDesplegable.classList.remove('mostrar');
+        });
+    </script>
+</body>
+
+</html>
