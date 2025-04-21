@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+.doss {
+  display: flex;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.columna-iz, .columna-der {
+  padding: 20px;
+}
+
+.columna-iz {
+  width: 35%;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.columna-der {
+  width: 65%;
+  background-color: #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.perfil img {
+  max-width: 50%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.def {
+  font-style: italic;
+  color: #777;
+}
+
+h3 {
+  border-bottom: 2px solid red;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  font-size: 1vw;
+}
+
+.habilidad {
+  margin: 10px 0;
+}
+
+.barra {
+  background: #eee;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.nivel {
+  height: 100%;
+}
+
+.alto {
+  width: 90%;
+  background: red;
+}
+
+.medio {
+  width: 60%;
+  background: red;
+}
+
+.bajo {
+  width: 30%;
+  background: red;
+}
+#barra{
+  padding: 10px;
+  margin: 1px;
+  background-color: red;
+}
+.none{
+  list-style-type: none;
+  padding: 0;
+}
+.listas{
+  display: flex;
+}
+
