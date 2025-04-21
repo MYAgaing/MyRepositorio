@@ -1,0 +1,5 @@
+package Granja;
+
+public class Cerdos extends Animales{
+
+}

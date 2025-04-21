@@ -1,0 +1,27 @@
+package Granja;
+
+import java.math.BigDecimal;
+
+public class Cerdos extends Animales{
+	
+
+	public static final Double VENTA = 4.5; 
+	
+	private String raza;
+	
+	public Cerdos(Integer num_registro) {
+		super(num_registro);
+		
+	}
+
+	public String getRaza() {
+		return raza;
+	}
+
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+	
+	
+	
+}

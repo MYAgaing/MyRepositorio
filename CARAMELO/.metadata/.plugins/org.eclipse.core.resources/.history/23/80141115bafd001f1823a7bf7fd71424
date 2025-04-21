@@ -1,0 +1,15 @@
+package Granja;
+
+import java.math.BigDecimal;
+
+public class Cerdos extends Animales{
+	public Cerdos(Integer num_registro) {
+		super(num_registro);
+		
+	}
+
+	public static final Double VENTA = 4.5; 
+	
+	private String raza;
+	
+}

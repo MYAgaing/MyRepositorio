@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\nadones2540\Documents\GitHub\MyRepositorio\CARAMELO\.metadata\.plugins\org.eclipse.jdt.core
+3352690934.index
+2837252434.index
+1865797976.index

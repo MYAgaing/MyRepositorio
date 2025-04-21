@@ -1,0 +1,10 @@
+package Granja;
+
+import java.math.BigDecimal;
+
+public class Cerdos extends Animales{
+	public static final BigDecimal peso = 
+	
+	private String raza;
+	
+}

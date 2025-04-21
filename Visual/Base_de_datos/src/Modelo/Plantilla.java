@@ -1,12 +1,8 @@
 package Modelo;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 
-import Sevicios.OpenConnection;
+import Sevicios.DatosIncompletosException;
 
 public class Plantilla {
 
@@ -40,18 +36,26 @@ public class Plantilla {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 	
-	String sql = "Select * from PERSONAS";
-	
-	try (Connection conn = getNewConnection();
-			Statement stmt = conn.createStatement()){
-		ResultSet rs = stmt.executeQuery(sql);
-		
-		while (rs.next()){
-			String nombre = rs.getString("Nombre");
-			String dni = rs.getString("dni");
-			String apellido = rs.getString("apellido");
+	public Boolean validar(Plantilla p) throws DatosIncompletosException{
+		try {
+			if(p.getNombre().isEmpty() || p.getNombre().isBlank()) {
+				throw new DatosIncompletosException();
+			} else if (p.getApellidos().isEmpty() || p.getApellidos().isBlank()) {
+				throw new DatosIncompletosException();
+			} else if (p.getDni().isEmpty() || p.getDni().isBlank()) {
+				throw new DatosIncompletosException();
+			}
+		} catch (DatosIncompletosException e) {
+			return false;
 		}
-	} catch (SQLException e) {
-		System.err.println("Error accdediendo a BBDD");
+		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Plantilla [dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fecha_nacimiento="
+				+ fecha_nacimiento + "]";
+	}
+	
+	
 }

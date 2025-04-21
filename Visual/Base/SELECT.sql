@@ -138,9 +138,102 @@ UNDEFINE nivel;
 
 --3 Se quiere una lista donde se muestre el curso y cuántas asignaturas hay en ese curso (una línea por cada curso). Ejemplo: Curso 1: 4 asignaturas. Excepciones a tener en cuenta: crea una excepción personalizada llamada cursoConRedes de forma que si el curso tiene la asignatura con descripción "Redes" no debes mostrarlo por pantalla, terminando la ejecución de tu código y mostrando en tu excepción el siguiente mensaje: "No se puedes mostrar datos porque existe la asignatura de Redes".
 
---4 Se quiere mostrar por la salida el nombre de cada asignatura y la nota media obtenida en las matrículas de esa asignatura por parte de los alumnos. Excepciones a tener en cuenta: crea una excepción personalizada menosDeCinco que, una vez mostradas todas las notas media, si alguna tiene un valor menor a cinco, llamar a esa excepción personalizada indicando el mensaje "Hay alguna asignatura con una media inferior a cinco", sustituyendo AAA por el valor concreto.
+declare
+   cursor c1 is
+   select curso,
+          count(curso)
+     from asignaturas
+    group by curso;
+   cursoconredes exception;
+   existeredes asignaturas.codigo%type;
+begin
+   select codigo
+     into existeredes
+     from asignaturas
+    where descripcion = 'Redes';
+   for rec in c1 loop
+      dbms_output.put_line('Curso '
+                           || rec.curso
+                           || ': '
+                           || rec.cantidad);
+   end loop;
+
+exception
+   when no_data_found then
+      for rec in c1 loop
+         dbms_output.put_line('Curso '
+                              || rec.curso
+                              || ': '
+                              || rec.cantidad);
+      end loop;
+   when cursoconredes then
+      dbms_output.put_line('No se pueden mostrar datos porque existe la asignatura de Redes');
+end;
+/
+
+
+--4 Se quiere mostrar por la salida el nombre de cada asignatura y la nota media obtenida en las matrículas de esa asignatura por parte de los alumnos. Excepciones a tener en cuenta: crea una excepción personalizada menosDeCinco que, una vez mostradas todas las notas media, si alguna tiene un valor menor a cinco, llamar a esa excepción personalizada indicando el mensaje "Hay alguna asignatura con una media inferior a cinco".
+
+declare
+   cursor c1 is
+   select descripcion,
+          avg(nota) as nota_media
+     from matriculas
+     join asignaturas
+   on matriculas.cod_asignatura = asignaturas.codigo
+    group by descripcion;
+   menosdecinco exception;
+begin
+   for f1 in c1 loop
+      if f1.nota_media < 5 then
+         raise menosdecinco;
+      else
+         dbms_output.put_line(f1.descripcion
+                              || ': '
+                              || f1.nota_media);
+      end if;
+   end loop;
+exception
+   when menosdecinco then
+      dbms_output.put_line('Hay alguna asignatura con una media inferior a 5');
+end;
+/
+
 
 --5 Modifica el ejercicio 4 para mostrar por la salida solo las asignaturas que tienen una media superior a 5. A continuación, si has mostrado una o más asignaturas con una media con decimales, llama a una excepción personalizada tienenDecimales que muestre todas esas asignaturas con decimales, separadas por coma. 
+
+
+declare
+   cursor c1 is
+   select descripcion,
+          avg(nota) as nota_media
+     from matriculas
+     join asignaturas
+   on matriculas.cod_asignatura = asignaturas.codigo
+    group by descripcion;
+   menosdecinco exception;
+   tienedecimales exception;
+   notamedia int;
+begin
+   for f1 in c1 loop
+      if f1.nota_media != trunc(f1.nota_media) then
+         notamedia := f1.nota_media;
+         raise tienedecimales;
+      else
+         dbms_output.put_line(f1.descripcion
+                              || ': '
+                              || f1.nota_media);
+      end if;
+   end loop;
+exception
+   when menosdecinco then
+      dbms_output.put_line('Hay alguna asignatura con una media inferior a 5');
+   when tienedecimales then
+      dbms_output.put_line(notamedia);
+end;
+/
+
+
 
 --6 Se quiere pedir por teclado el código de una asignatura. Muestra una lista de todos los alumnos que están matriculados (dni y nombre de los almnos) y la nota que han sacado. Ten en cuenta las siguientes excepciones: el código de asignatura es un número, existe en la tabla asignaturas y además hay matrículas de alumnos en esa asignatura. Para esa última excepción, crea una excepción personalizada que se llame noMatriculas.
 

@@ -14,12 +14,47 @@
         <p>
             Tu navegador no soporta html5. aqui esta el <a href="https://www.w3schools.com/html/mov_bbb.mp4"></a>
         </p>
-    </video>
-    <video id="video2" src="https://www.w3schools.com/html/mov_bbb.mp4" controls loop>
-        <track src="media/subtitulos-es.vttt" kind="subtitles" srclang="es" default label="Español">
-        <track src="media/subtitulos-en.vtt" kind="subtitles" srclang="en" label="English">
-    </video>
+    </video><br>
+    <div>
+        <video id="video2" src="https://www.w3schools.com/html/mov_bbb.mp4" controls>
+            <track src="media/subtitulos-es.vttt" kind="subtitles" srclang="es" default label="Español">
+            <track src="media/subtitulos-en.vtt" kind="subtitles" srclang="en" label="English">
+        </video>
+    </div>
+    <h4 style="text-align: center;">Controles</h4>
+    <button onclick="playPause()">Reproducir/Parar</button>
+    <button onclick="makeBig()">Aumentar</button>
+    <button onclick="makeSmall()">Reducir</button>
+    <button onclick="makeNormal()">Normal</button>
+    <button onclick="retroceder()">Retroceder</button>
+    <button onclick="avanzar()">Avanzar</button>
+    <button onclick="fullScreen()">FullScreen</button>
     <script>
+        var vid = document.getElementById("video2");
+        function playPause() {
+            if (vid.pause)
+                vid.play();
+            else
+                vid.pause();
+        }
+        function makeBig() {
+            vid.width = vid.width + 30;
+        }
+        function makeSmall() {
+            vid.width = vid.width - 30;
+        }
+        function makeNormal() {
+            vid.width = 420;
+        }
+        function retroceder() {
+            vid.currentTime -= 10;
+        }
+        function avanzar() {
+            vid.currentTime += 10;
+        }
+        function fullScreen() {
+            vid.requestFullscreen();
+        }
         /* function myFuncion() {
              let vid = document.getElementById("video1");
              let textTrack = vid.addTextTrack("captions", "Español", "es");
