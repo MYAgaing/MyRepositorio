@@ -1,0 +1,250 @@
+set serveroutput on;
+
+DECLARE
+    variable1        dept.deptno%TYPE;
+    fila1            dept%rowtype;
+    TYPE departamentosinloc IS RECORD (
+            codigodepartamento dept.deptno%TYPE,
+            dname              dept.dname%TYPE
+    );
+    filadepartamento departamentosinloc;
+BEGIN
+    filadepartamento.codigodepartamento := 1;
+    filadepartamento.dname := 'TIC';
+    dbms_output.put_line();
+END;
+/
+
+DECLARE
+    TYPE direccion IS RECORD (
+            calle     VARCHAR2(50),
+            numero    INTEGER(4),
+            piso      INTEGER(4),
+            puerta    VARCHAR2(2),
+            provincia VARCHAR2(20),
+            pais      VARCHAR2(20) := 'España'
+    );
+    direccion1 direccion;
+BEGIN
+    direccion1.calle := 'Barnard';
+    direccion1.numero := 47;
+    direccion1.piso := 47;
+    direccion1.puerta := 'Si';
+    direccion1.provincia := 'Andalucia';
+    dbms_output.put_line(direccion.calle
+                         || ' '
+                         || direccion.numero
+                         || ' '
+                         || direccion.piso
+                         || ' '
+                         || direccion.puerta
+                         || ' '
+                         || direccion.provincia
+                         || ' '
+                         || direccion.pais);
+
+END;
+/
+
+DECLARE
+    TYPE tpersona IS RECORD (
+            codigo NUMBER,
+            nombre VARCHAR2(100),
+            edad   INT
+    );
+    persona1 tpersona;
+BEGIN
+    persona1.codigo := 1;
+    persona1.nombre := 'Juan';
+    persona1.edad := 33;
+    dbms_output.put_line(persona1.codigo
+                         || ' '
+                         || persona1.nombre
+                         || ' '
+                         || persona1.edad);
+
+END;
+/
+
+DECLARE
+    TYPE pais IS RECORD (
+            co_pais     NUMBER,
+            descripcion VARCHAR2(50),
+            continente  VARCHAR2(20)
+    );
+    TYPE moneda IS RECORD (
+            descripcion VARCHAR2(50),
+            pais_moneda pais
+    );
+    mipais   pais;
+    mimoneda moneda;
+BEGIN
+    mipais.co_pais := 1;
+    mipais.descripcion := 'España';
+    mipais.continente := 'Europa';
+    mimoneda.descripcion := 'Euro';
+    mimoneda.pais_moneda := mipais;
+    dbms_output.put_line(mimoneda.pais_moneda.descripcion);
+END;
+/
+
+DECLARE
+    TYPE tpersona IS RECORD (
+            codigo NUMBER(2),
+            nombre VARCHAR2(100),
+            edad   INT
+    );
+    TYPE alumno IS RECORD (
+            nombre   VARCHAR(100),
+            profesor tpersona
+    );
+    alumno1 alumno;
+BEGIN
+    alumno1.nombre := 'pepe';
+    alumno1.profesor.codigo := 1;
+    alumno1.profesor.nombre := 'Indalecio';
+    alumno1.profesor.edad := 22;
+    dbms_output.put_line(alumno1.nombre
+                         || alumno1.profesor.codigo
+                         || alumno1.profesor.nombre
+                         || alumno1.profesor.edad);
+
+END;
+/
+
+SELECT
+    ename
+FROM
+    emp
+WHERE
+    sal > (
+        SELECT
+            sal
+        FROM
+            emp
+        WHERE
+            ename = 'JAMES'
+    );
+
+SELECT
+    ename
+FROM
+    emp
+WHERE
+    deptno = (
+        SELECT
+            deptno
+        FROM
+            emp
+        WHERE
+            ename = 'SMITH'
+    )
+ORDER BY
+    ename;
+
+SELECT
+    ename
+FROM
+    emp
+WHERE
+    deptno = (
+        SELECT
+            deptno
+        FROM
+            emp
+        WHERE
+            ename = 'SMITH'
+    )
+ORDER BY
+    ename;
+
+SELECT
+    ename
+FROM
+    emp
+WHERE
+    hiredate < (
+        SELECT
+            hiredate
+        FROM
+            emp
+        WHERE
+            ename = 'MILLER'
+    );
+
+SELECT
+    ename
+FROM
+    emp
+WHERE
+        job = (
+            SELECT
+                job
+            FROM
+                emp
+            WHERE
+                ename = 'FORD'
+        )
+    AND sal > (
+        SELECT
+            sal
+        FROM
+            emp
+        WHERE
+            ename = 'JAMES'
+    );
+
+SELECT
+    ename,
+    dname
+FROM
+         emp
+    JOIN dept ON emp.deptno = dept.deptno
+WHERE
+    ename = 'SCOTT';
+
+SELECT
+    COUNT(*)
+FROM
+    emp
+WHERE
+    sal < (
+        SELECT
+            sal
+        FROM
+            emp
+        WHERE
+            ename = 'MILLER'
+    );
+
+SELECT
+    ename,
+    loc
+FROM
+         emp
+    JOIN dept ON emp.deptno = dept.deptno
+WHERE
+    ename = 'KING';
+
+SELECT
+    dname
+FROM
+         dept
+    JOIN emp ON emp.deptno = dept.deptno
+WHERE
+    job = 'CLERK';
+
+SELECT
+    dname
+FROM
+    dept
+WHERE
+    deptno NOT IN (
+        SELECT
+            deptno
+        FROM
+            emp
+        WHERE
+            job = 'ANALYST'
+    );
+    

@@ -1,7 +1,0 @@
-package Granja;
-
-public class Cerdos extends Animales{
-
-	private String raza;
-	
-}

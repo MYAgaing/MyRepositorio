@@ -15,22 +15,52 @@
             Tu navegador no soporta html5. aqui esta el <a href="https://www.w3schools.com/html/mov_bbb.mp4"></a>
         </p>
     </video><br>
-    <div>
+    <div style="text-align: center;">
         <video id="video2" src="https://www.w3schools.com/html/mov_bbb.mp4" controls>
             <track src="media/subtitulos-es.vttt" kind="subtitles" srclang="es" default label="Español">
             <track src="media/subtitulos-en.vtt" kind="subtitles" srclang="en" label="English">
         </video>
     </div>
     <h4 style="text-align: center;">Controles</h4>
-    <button onclick="playPause()">Reproducir/Parar</button>
-    <button onclick="makeBig()">Aumentar</button>
-    <button onclick="makeSmall()">Reducir</button>
-    <button onclick="makeNormal()">Normal</button>
-    <button onclick="retroceder()">Retroceder</button>
-    <button onclick="avanzar()">Avanzar</button>
-    <button onclick="fullScreen()">FullScreen</button>
+    <div style="text-align: center;">
+        <button onclick="playPause()">Reproducir/Parar</button>
+        <button onclick="makeBig()">Aumentar</button>
+        <button onclick="makeSmall()">Reducir</button>
+        <button onclick="makeNormal()">Normal</button>
+        <button onclick="retroceder()">Retroceder</button>
+        <button onclick="avanzar()">Avanzar</button>
+        <button onclick="fullScreen()">FullScreen</button>
+    </div>
+    <h4 style="text-align: center;">Filtros</h4>
+    <div style="text-align: center;">
+        <select name="filtros" id="filtros" style="text-align: center;">
+            <option value="none">Ninguno</option>
+            <option value="grayscale(100%)">Escala de grises</option>
+            <option value="sepia(100%)">sepia</option>
+            <option value="invert(100%)">Invertido</option>
+            <option value="blur(5px)">Desenfoque</option>
+        </select>
+    </div>
+    <div style="text-align: center;">
+        <button onclick="captura()">Capturar Imagen</button>
+    </div>
+    <div style="text-align: center;"><canvas id="canvas" width="640" height="360"
+            style="border: 1px solid black;"></canvas></div>
     <script>
+        var canva = document.getElementById("canvas").getContext("2d");
+        function captura() {
+            canva.drawImage(video2, 0, 0, canvas.width, canvas.height)
+        };
+        var filtro = document.getElementById("filtros");
+        filtro.addEventListener("change", () => {
+            vid.style.filter = filtro.value;
+            alert("Se ha cambiado el filtro");
+        })
         var vid = document.getElementById("video2");
+        vid.addEventListener("ended", function () {
+            alert("El video se a parado");
+            vid.play();
+        })
         function playPause() {
             if (vid.pause)
                 vid.play();

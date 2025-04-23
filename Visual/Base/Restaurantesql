@@ -1,0 +1,138 @@
+/**Los dos siguientes apartados puntúan solo 0.1 puntos**
+ 
+1. Inserta el siguiente registro en la tabla platos:
+ 
+- id: 6
+ 
+- nombre: Solomillo a la carbonara
+ 
+- precio: 6.50
+ 
+- cantidad: 12*/
+select * from platos;
+insert into platos values (6,'Solomillo a la carbonara',6.50,12);
+/* 
+2. Actualiza el registro anterior de la tabla platos con los siguientes datos:
+ 
+- nuevo valor de precio: 6.75
+ 
+**Todos los apartados siguientes (28 en total) puntúan sobre 0.35 puntos***/
+update platos set precio = 6.75 where id = 6 ;
+ /*
+3. Borra el registro que creaste en el apartado 1.*/
+delete from platos where id = 6;
+/* 
+4. Crea un nuevo registro en la tabla clientes con los siguientes datos:
+ 
+- id: 4
+ 
+- nombre: 'Luis Miguel'
+ 
+- localidad: 'Gines'
+*/
+select * from clientes;
+insert into clientes values (4,'Luis Miguel','','Gines');
+/* 
+5. Modifica el registro anterior (apartado 4) incluyendo el siguiente valor:
+ 
+- telefono: 288333444*/
+update clientes set telefono = '288333444' where id = 4;
+/*
+6. Se quiere modificar el nombre de un plato (tabla platos). Se quiere cambiar el nombre del plato cuya longitud 
+de caracteres es la mayor de toda la tabla, añadiendo al final del nombre '- cocina de autor'. Ej.: Entrante Crema 
+de zanahorias - cocina de autor.
+*/
+ update platos set nombre = nombre || '- cocina de autor' where length(nombre) = (select max(length(nombre)) from platos);
+ select * from platos;
+/*
+7. Se detecta una errata en la hora de la última comanda guardada el día 02-03-2021 a las 21:55. En realidad fue 
+a las 22:05, cambia dicho valor de hora solo en ese registro.
+*/
+ update comandas set hora = '22:05' where fecha = (select max(fecha) from comandas) ;
+ select * from comandas;
+/*
+8. Indica qué modificarías de la tabla comandas si se quiere que, al borrar un cliente (registro de la tabla clientes), 
+se ponga a null el campo id_cliente de todos los registros de la tabla comandas que tengan dicho id de cliente. 
+No hace falta que lo hagas sobre tu sql, solo indica cómo sería tu alter table comandas.
+*/
+ alter table comandas drop SYS_C008392;
+/*
+9. Se quiere una lista con el nombre de todos los ingredientes que sean PESCADO. Debes devolver el nombre con todas 
+las letras en minúsculas.
+*/
+ select nombre from ingredientes where categoria = 'PESCADO';
+/*
+10. Se quiere saber todos los estados de comandas que haya, sin repetir el valor en el resultado y ordenados en orden 
+inverso al alfabético (z-a).
+*/
+select distinct(estado) from comandas order by 1 desc;
+/*
+11. Se quiere saber cuántas comandas se realizaron entre las 21:10 y las 21:50 horas (ambas inclusive) el día 01/03/21 por el id_cliente = 2.
+*/
+select count(*) from comandas where hora between '21:10' and '21:50' and fecha = '01/03/2021' and id_cliente = 2;
+/*
+12. Realiza la misma SQL del apartado 11 pero en lugar de usar id_cliente = 2, se quiere usar que el nombre del cliente sea Pedro Juan.
+*/
+select count(*) from comandas where hora between '21:10' and '21:50' and fecha = '01/03/2021' and id_cliente = (select id from clientes where nombre = 'Pedro Juan');
+/*
+13. Muestra el nombre y la localidad de los clientes que vivan en Gines. Debes usar alias para nombrar las columnas, la primera será "Cli" y la segunda "LOC". También usa alias de tabla, llamándola datoscompletos, y úsalo para seleccionar las columnas nombre y localidad.
+*/
+select nombre,localidad from clientes where localidad = 'Gines';
+/*
+14. Muestra todos los datos de la tabla ingredientes en mayúsculas y que se encuentren en estado SOLIDO.
+*/
+select UPPER(id),upper(nombre),upper(categoria),upper(estado) from ingredientes where estado = 'SOLIDO'; 
+/*
+15. ¿Cuál es el cliente cuyo nombre tiene menos caracteres? Pon en una única columna el nombre del cliente: número de caracteres. Ej.: Maria: 5
+*/
+select nombre || ': ' || (select min(length(nombre)) from clientes) from clientes where length(nombre) = (select min(length(nombre)) from clientes)
+/*
+16. Indica el nombre del estado y cuántas comandas hay por cada tipo de estado. Ej.: COCINA: 7 SERVIDO: 15, etc.
+*/
+select estado, count(select distinct(estado)from comandas) from comandas;
+/*
+17. ¿Cuántos platos de Entrante bacalao en aceite se han servido en las comandas del 01/03/21?
+*/
+select count(platos.nombre) from platos join comandas on comandas.id_plato = platos.id where platos.nombre = 'Entrante bacalao en aceite' and comandas.fecha = '01/03/21';
+/*
+18. Indica el nombre del ingrediente que se usa en mayor cantidad en el plato Tarta de queso.
+*/
+select max(Cantidad),
+ingredientes.nombre from ingredientes_platos join platos on platos.id = ingredientes_platos.id_plato join ingredientes on ingredientes.id = ingredientes_platos.id_ingrediente where ingredientes_platos.id_plato = (select id from platos where nombre = 'Tarta de queso') and ingredientres.id = (ingredientes_platos.id_ingrediente) ;
+select * from ingredientes_platos;
+/*
+19. Indica el valor medio del PRECIO de los platos cuyo nombre empiece por P con REDONDEO de tres decimales.
+*/
+/*
+20. Indica el NOMBRE del plato más barato, junto a su precio. Debes añadir en la columna del precio la palabra 'euros'. Ej.: Tarta de queso 5.50 euros
+*/
+/*
+21. Indica la lista de ingredientes con el nombre de estos, para el plato cuyo nombre termina en la letra e.
+*/
+/*
+22. Devuelve el nombre y la categoría de los ingredientes que estén en estado SOLIDO. Devuelve el nombre y la categoría con la primera letra mayúsculas de cada palabra que conforme el nombre y categoría. Ej.: Costilla De Cerdo Carne
+*/
+/*
+23. ¿Cuál es el tiempo medio de preparación de los platos cuyo precio es superior a 5 euros? Trúncalo a un decimal.
+*/
+/*
+24. ¿Cuántos ingredientes pertenecen a la CATEGORIA de VERDURA?
+*/
+/*
+25. ¿Cuánto dinero se ha obtenido del plato de ID = 3? Indica solo una columna con el importe con un decimal. Recuerda que para obtener dinero de un plato, los comensales han debido de pagar la comanda, es decir, tener un estado COBRADO.
+*/
+/*
+26. ¿Cuál es el NOMBRE del ingrediente que aparece en más platos?
+*/
+/*
+27. Indica la categoría y cuántos ingredientes hay por esa categoría. Ej.: VERDURA: 3 CONDIMENTO: 5, etc.
+*/
+/*
+28. ¿Cuál es el nombre del plato que entró por comanda en COCINA el 02/03/21 a las 21:27?
+*/
+/*
+29. ¿Cuántas comandas se han llevado a cabo en la mesa 1?
+*/
+/*
+30. Indica el nombre de los ingredientes cuyo nombre tenga más de 10 caracteres pero se encuentren en estado SOLIDO.
+*/

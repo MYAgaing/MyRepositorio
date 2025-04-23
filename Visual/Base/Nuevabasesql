@@ -1,0 +1,12 @@
+--1. Se quiere saber la segunda palabra del nombre de los clientes y mostrarla en mayúsculas. En caso de que no tenga, no debe aparecer en la lista. No deben aparecer espacios ni antes ni después de esta segunda palabra. Se entiende que la segunda palabra es aquella que está entre el primer espacio y el segundo espacio.
+SELECT
+    substr(nombre_cliente || ' ' , instr(nombre_cliente, ' ',1,1),(length(nombre_cliente) - instr(nombre_cliente,' ' , 1)) || ' ')
+FROM
+    cliente;
+--2. Se quiere mostrar en una única columna y fila una frase que contenga el nombre del cliente que hizo el último pago, el nombre del cliente que hizo el primer pago y la diferencia en meses (entero inferior, sin decimales) entre ambos pagos. El resultado debería ser tal que así tras las concatenaciones de dichos tres campos: 'Sotogrande y Tendo Garden. Han pasado 38 meses'.
+select (select nombre_cliente from cliente join pago on pago.codigo_cliente = cliente.codigo_cliente where fecha_pago = (select MAX(fecha_pago) from pago)) || ' ' || (select nombre_cliente from cliente join pago on pago.codigo_cliente = cliente.codigo_cliente where fecha_pago = (select min(fecha_pago) from pago)) || ' ' || floor(months_BETWEEN((select MAX(fecha_pago) from pago),(select min(fecha_pago) from pago))) from dual;
+--3. Empleando IN, obtén el nombre y gama de todos los productos que sean de la gama Ornamentales, Frutales y Aromáticas, y el tamaño/número de caracteres del nombre sea inferior o igual a 10 caracteres.
+select distinct nombre, gama from producto where producto.gama in ('Ornamentasles','Frutales','Aromáticas') and length(nombre) <= 10;
+--4. Se quiere saber el código de los pedidos que no tienen comentarios y además la fecha del pedido se encuentra entre enero de 2008 y febrero de 2009.
+select * from pedido where comentarios is null and fecha_pedido BETWEEN '2008-01-01' and '2009-02-01';
+select * from pedido;

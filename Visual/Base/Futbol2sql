@@ -1,0 +1,18 @@
+select 
+    nombre,salario,salario*1.5 || ' Euros' "Salario bruto" 
+from 
+    futbolistas;
+select upper('Nombre') from dual;
+select concat(concat(concat(' ','Hola'),' '),'mundo') from dual;
+select ceil(11) from dual;
+select floor(11.9) from dual;
+select round(11.5) from dual;
+select sqrt(100) from dual;
+select trunc(17,584) from dual;
+select sign(-5) from dual;
+select sqrt(310) from dual;
+select exp(4) from dual;
+select ceil(15.3) from dual;
+select floor(15.3) from dual;
+select mod(15,3) from dual;
+select power(15,2) from dual;

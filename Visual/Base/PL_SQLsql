@@ -1,0 +1,98 @@
+set serveroutput on;
+
+DECLARE
+    variable1 emp.job%TYPE := '&Introduzca_el_puesto';
+    contador  INT := 0;
+BEGIN
+    SELECT
+        COUNT(*)
+    INTO contador
+    FROM
+        emp
+    WHERE
+        job = variable1;
+
+    IF contador > 0 THEN
+        dbms_output.put_line(contador);
+    ELSE
+        dbms_output.put_line('No hay empleados en ese puesto');
+    END IF;
+
+END;
+/
+
+DECLARE
+    mifecha            DATE := '17/09/1981';
+    mindepartamento    INT;
+    nombredepartamento dept.dname%TYPE;
+    maxdepartamento    INT;
+    cuenta             INT;
+BEGIN
+    SELECT
+        MIN(deptno),
+        MAX(deptno)
+    INTO
+        mindepartamento,
+        maxdepartamento
+    FROM
+        dept;
+
+    FOR i IN mindepartamento..maxdepartamento LOOP
+        SELECT
+            COUNT(*)
+        INTO cuenta
+        FROM
+            dept
+        WHERE
+            deptno = i;
+
+        IF cuenta > 0 THEN
+            SELECT
+                dname
+            INTO nombredepartamento
+            FROM
+                dept
+            WHERE
+                deptno = i;
+
+            dbms_output.put_line('--' || nombredepartamento);
+        END IF;
+
+    END LOOP;
+
+END;
+/
+
+DECLARE
+    fecha1 DATE := '&fecha1';
+    fecha2 DATE := '&fecha2';
+    numempleados int;
+BEGIN
+    select count(*) into numempleados from emp where hiredate BETWEEN fecha1 and fecha2;
+    IF fecha2 > fecha1 and numempleados > 0  THEN
+        dbms_output.put_line(numempleados);
+ELSE
+    dbms_output.put_line('No se cumplen condiciones');
+END IF;
+
+end;
+/
+
+--4
+declare
+TYPE DEPARTAMENTO IS RECORD(
+    CODIGO DEPT.DEPTNO%TYPE,
+    NOMBRE DEPT.DNAME%TYPE
+);
+    Type EMPLEADO IS RECORD(
+    CODIGO EMP.EMPNO%TYPE,
+    NOMBRE EMP.ENAME%TYPE,
+    PUESTO EMP.JOB%TYPE,
+    DEPARTAMENTOV DEPARTAMENTO
+    );
+    EMPLEADOMASNOVEL EMPLEADO;
+begin
+SELECT EMPNO,ENAME,JOB,DEPT.DEPTNO,DNAME INTO EMPLEADONOVEL.CODIGO,EMPLEADONOVEL.NOMBRE,EMPLEADONOVEL.PUESTO,EMPLEADONOVEL.DEPARTAMENTOV.CODIGO FROM EMP JOIN DEPT ON DEPT.DEPTNO = EMP.DEPTNO;
+ dbms_output.put_line('');
+end;
+/

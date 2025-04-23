@@ -1,0 +1,60 @@
+set serveroutput on;
+
+DECLARE
+    num1 INT := 0;
+BEGIN
+    LOOP
+        dbms_output.put_line(num1);
+        /*IF num1 = 20 THEN
+            EXIT;
+        END IF;*/
+        EXIT WHEN num1 = 20;
+        num1 := num1 + 1;
+    END LOOP;
+END;
+/
+
+DECLARE
+    num1 INT := 0;
+BEGIN
+    WHILE num1 < 20 LOOP
+        dbms_output.put_line(num1);
+        EXIT WHEN num1 = 20;
+        num1 := num1 + 1;
+    END LOOP;
+END;
+/
+
+--FOR
+
+
+BEGIN
+    FOR ind IN 0..20 LOOP
+        dbms_output.put_line(ind);
+    END LOOP;
+END;
+/
+
+BEGIN
+    FOR ind IN REVERSE 0..20 LOOP
+        dbms_output.put_line(ind);
+    END LOOP;
+END;
+/
+
+BEGIN
+    FOR ind IN 0..40 LOOP
+        IF MOD(ind, 2) = 0 THEN
+            dbms_output.put_line(ind);
+        END IF;
+    END LOOP;
+END;
+/
+begin 
+for ind in 1..10 loop
+for ind1 in 1..10 loop
+dbms_output.put_line (ind || ' x ' || ind1 || ' = ' || (ind * ind1));
+end loop;
+end loop;
+end;
+/

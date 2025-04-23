@@ -1,0 +1,245 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../css/portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../img/favicon-32x32.png" type="image/x-icon">
+</head>
+<body>
+   <header class="header">
+    <a href="#" class="logo">Bock</a>
+
+    <i class="fa-solid fa-ellipsis-vertical" class="icono-menu"></i>
+
+    <nav class="menu">
+        <a href="#inicio" class="active">Inicio</a>
+        <a href="#sobremi">Sobre mí</a>
+        <a href="#educacion">Educación</a>
+        <a href="#experiencias">Experiencias</a>
+    </nav>
+   </header>
+
+   <section class="inicio" id="inicio">
+    <div class="inicio-imagen">
+        <img src="../img/icon.png" alt="poronga">
+    </div>
+    <div class="inicio-contenido">
+        <h1>Hola! Soy <span>Victoria</span></h1>
+        <h3 class="presentacion">Soy una <span></span></h3>
+        <p>Me llamo Victoria, aunque prefiero que me llamen por un diminutivo como "Vicky" o Bock (uno de mis motes). Si tuviera
+            que describirme en pocas palabras, sería trabajadora, alegre y con una muy buena capacidad para adaptarme a todo.
+        </p>
+        <div class="iconosRedes">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <a href="#" class="boton">¡Contrátame!</a>
+    </div>
+    </section>
+
+    <section class="sobremi" id="sobremi">
+    <h2 class="heading">Sobre <span>mí</span></h2>
+    <div class="sobremi-contenido">
+        <div class="sobremi-box">
+            <div class="sobremi-info">
+                <h4>Hard Skills</h4>
+                <p> Tengo conocimientos de Java, un poco de Python, Oracle, todos los programas ofimáticos y html.
+                    
+                </p>
+            </div>
+        </div>
+        <div class="sobremi-box">
+            <div class="sobremi-info">
+                <h4>Soft Skills</h4>
+                <p>Soy empática, se trabajar bajo presión tanto sola como en equipo y no tengo dificultad para adaptarme y aprender cosas nuevas.
+                </p>
+            </div>
+        </div>
+        <div class="sobremi-box">
+            <div class="sobremi-info">
+                <h4>Intereses y demás</h4>
+                <p>Poseo conocimientos autodidácticos en arte digital y sé hablar inglés avanzado y francés básico, pero em gustaría aprender más idiomas.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="educacion" id="educacion">
+        <h2 class="heading">Mi <span>Educación</span></h2>
+        <div class="timeline">
+            <div class="derecho">
+                <div class="contenido">
+                    <div class="tag">
+                        <h2>Grado superior en 
+                            Desarrollo de Aplicaciones Multiplataforma</h2>
+                    </div>
+                    <div class="sitio">
+                        <p>CEU San Pablo Andalucía</p>
+                    </div>
+                </div>
+            </div>
+            <div class="izquierdo">
+                <div class="contenido">
+                    <div class="tag">
+                        <h2>Bachillerato Tecnológico</h2>
+                    </div>
+                    <div class="sitio">
+                        <p>IES Los Álamos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="derecho">
+                <div class="contenido">
+                    <div class="tag">
+                        <h2>ESO</h2>
+                    </div>
+                    <div class="sitio">
+                        <p>IES Los Álamos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="sobremi" id="experiencias">
+        <h2 class="heading">Mi <span>Experiencia</span></h2>
+        <div class="sobremi-contenido">
+            <div class="sobremi-box">
+                <div class="sobremi-info">
+                    <h4>Camarera en Bodega Simeón</h4>
+                    <p> Manejo de bandeja, atención a cliente y manejo de PDA.
+                    </p>
+                </div>
+            </div>
+            <div class="sobremi-box">
+                <div class="sobremi-info">
+                    <h4>Limpiadora en Hotel Ilunion</h4>
+                    <p>Mantenimiento de el área de la piscina de un hotel.
+                    </p>
+                </div>
+            </div>
+            <div class="sobremi-box">
+                <div class="sobremi-info">
+                    <h4>Comisiones de arte</h4>
+                    <p>Venta de dibujos a pedido online.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sugerencias">
+        <h2 class="heading">Sugerencias</h2>
+        <form action="https://www.w3schools.com/action_page.php" method="post">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" maxlength="20" required><br><br>
+            
+            <label for="apellidos">Apellidos:</label><br>
+            <input type="text" id="apellidos" name="apellidos" maxlength="50" required><br><br>
+            
+            <label for="direccion">Dirección:</label><br>
+            <input type="text" id="direccion" name="direccion"><br><br>
+            
+            <label for="telefono">Teléfono:</label><br>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9,}" required><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="sexo">Sexo:</label><br>
+            <select id="sexo" name="sexo" required>
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
+            </select><br><br>
+            
+            <label>Aficiones:</label><br>
+            <input type="checkbox" id="deporte" name="aficiones" value="Deporte">
+            <label for="deporte">Deporte</label><br>
+            <input type="checkbox" id="cine" name="aficiones" value="Cine">
+            <label for="cine">Cine</label><br>
+            <input type="checkbox" id="teatro" name="aficiones" value="Teatro">
+            <label for="teatro">Teatro</label><br>
+            <input type="checkbox" id="tv" name="aficiones" value="Ver televisión">
+            <label for="tv">Ver televisión</label><br>
+            <input type="checkbox" id="musica" name="aficiones" value="Música">
+            <label for="musica">Música</label><br>
+            <input type="checkbox" id="estudiar" name="aficiones" value="Estudiar">
+            <label for="estudiar">Estudiar</label><br><br>
+            
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label><br>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+            
+            <label for="valoracion">Valoración de la página (1-10):</label><br>
+            <input type="range" id="valoracion" name="valoracion" min="1" max="10"><br><br>
+            
+            <label for="provincia">Provincia:</label><br>
+            <select id="provincia" name="provincia" required>
+              <option value="Almería">Almería</option>
+              <option value="Cádiz">Cádiz</option>
+              <option value="Córdoba">Córdoba</option>
+              <option value="Granada">Granada</option>
+              <option value="Huelva">Huelva</option>
+              <option value="Jaén">Jaén</option>
+              <option value="Málaga">Málaga</option>
+              <option value="Sevilla">Sevilla</option>
+            </select><br><br>
+            
+            <label for="comentarios">Comentarios:</label><br>
+            <textarea id="comentarios" name="comentarios" rows="10" style="width: 100%;"></textarea><br><br>
+            
+            <label for="multimedia">Multimedia:</label><br>
+            <input type="file" id="multimedia" name="multimedia"><br><br>
+            
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpiar campos">
+          </form>
+    </section>
+    <section class="encuesta">
+        <h2 class="heading">Encuesta</h2>
+        <form action="https://www.w3schools.com/action_page.php" method="post">
+            <div class="column">
+              <h3>Preguntas en la Columna 1</h3>
+              <p>1. ¿Qué te parece el diseño del portafolio?</p>
+              <input type="radio" id="diseno1" name="diseno" value="Excelente">
+              <label for="diseno1">Excelente</label><br>
+              <input type="radio" id="diseno2" name="diseno" value="Bueno">
+              <label for="diseno2">Bueno</label><br>
+              <input type="radio" id="diseno3" name="diseno" value="Regular">
+              <label for="diseno3">Regular</label><br>
+              <input type="radio" id="diseno4" name="diseno" value="Malo">
+              <label for="diseno4">Malo</label><br><br>
+          
+              <p>3. ¿Qué opinas sobre la organización del contenido?</p>
+              <input type="checkbox" id="organizacion1" name="organizacion" value="Clara">
+              <label for="organizacion1">Clara</label><br>
+              <input type="checkbox" id="organizacion2" name="organizacion" value="Confusa">
+              <label for="organizacion2">Confusa</label><br><br>
+            </div>
+          
+            <div class="column">
+              <h3>Preguntas en la Columna 2</h3>
+              <p>2. ¿Qué tan fácil es navegar por el portafolio?</p>
+              <input type="range" id="navegacion" name="navegacion" min="1" max="10"><br><br>
+          
+              <p>4. ¿Te gustaría ver más ejemplos de proyectos?</p>
+              <input type="radio" id="ejemplos1" name="ejemplos" value="Sí">
+              <label for="ejemplos1">Sí</label><br>
+              <input type="radio" id="ejemplos2" name="ejemplos" value="No">
+              <label for="ejemplos2">No</label><br><br>
+            </div>
+            
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpiar campos">
+          </form>
+    </section>
+    <section class="gracias">
+        <h2 class="heading"> ¡<span>Gracias</span> por mirar!</h2>
+        <div class="iframe">
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/kq2BCYAKDNc?list=RDP2uiTTYWIjE" title="Good Kid - From The Start (Laufey Cover)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
+    </body>
+    </html>

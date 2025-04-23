@@ -1,7 +1,0 @@
-package Granja;
-
-public class Pollos extends Animales{
-
-	
-	
-}

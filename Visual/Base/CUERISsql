@@ -1,0 +1,75 @@
+--Boletín de ejercicios GROUP BY
+--BBDD EMP-DEPT.SQL
+
+--1. Muestra la cantidad de empleados en cada departamento.
+select dept.dname,count(*) from emp join dept on dept.deptno = emp.deptno group by dept.dname;
+--2. Calcula el salario promedio de los empleados en cada departamento.
+select dname,round(AVG(sal)) from emp join dept on dept.deptno = emp.deptno group by dept.dname;
+--3. Encuentra el salario más alto y más bajo en cada departamento.
+select dname,min(sal) ,max(sal) from emp join dept on dept.deptno = emp.deptno group by dept.dname;
+--4. Suma los salarios de todos los empleados por departamento.
+select dname,sum(sal) from emp join dept on dept.deptno = emp.deptno group by dept.dname;
+--5. Cuenta cuántos empleados hay en cada tipo de cargo (JOB).
+select job,count(*) from emp group by job;
+--6. Calcula el salario promedio por cargo.
+select job,round(avg(sal)) from emp group by job;
+--7. Muestra solo los departamentos que tienen más de 5 empleados.
+select dname,count(*) from emp join dept on dept.deptno = emp.deptno group by dept.dname having count(*) > 5 ;
+--8. Calcula el salario promedio de cada cargo y ordénalo de mayor a menor.
+select round(avg(sal)) from emp group by job order by 1 desc;
+--9. Suma la comisión total otorgada en cada departamento.
+select sum(comm) from emp join dept on dept.deptno = emp.deptno group by dname;
+--10. Cuenta cuántos empleados tienen comisión (COMM IS NOT NULL) y cuántos no (COMM IS NULL).
+select count(*) from emp where comm is not null union select count(*) from emp where comm is null; 
+--11. Cuenta cuántos empleados fueron contratados cada año.
+select count(*) from emp group by to_char(hiredate,'yyyy');
+--12. Cuenta cuántos empleados fueron contratados en cada mes.
+select count(*) from emp group by to_char(hiredate,'month');
+--13. Encuentra el departamento con el mayor total de salarios.
+select dept.dname,sum(sal) from emp join dept on dept.deptno = emp.deptno 
+group by dept.dname having sum(sal) = (select max(sum(sal))
+from emp join dept on dept.deptno = emp.deptno group by dept.dname);
+--14. Encuentra el cargo con el menor salario promedio.
+select job,min(sal) from emp group by job having min(sal) = (select min(sal) from emp);
+--15. Lista los departamentos con al menos 3 empleados.
+select dname,count(*) from emp join dept on dept.deptno = emp.deptno group by dept.dname having count(*) >= 3;
+--16. Calcula el salario promedio de empleados que tienen comisión y los que no.
+select round(avg(sal)) from emp where comm is not null union select round(avg(sal)) from emp where comm is null;
+--17. Cuenta cuántos empleados hay por combinación de cargo y departamento.
+select dname,count(*) from emp join dept on dept.deptno = emp.deptno group by job, dname;
+--18. Suma los salarios de los empleados por combinación de cargo y departamento.
+select dname,sum(sal) from emp join dept on dept.deptno = emp.deptno group by job,dname;
+--19. Lista los departamentos con un salario promedio mayor a 2000.
+select dname,sal from dept join emp on emp.deptno = dept.deptno where sal > 2000;
+--20. Lista los departamentos donde hay al menos un empleado que gana más de 2900.
+select dname,sal from dept join emp on emp.deptno = dept.deptno where sal > 2900;
+
+select max(hiredate) from emp;
+
+set serveroutput on;
+declare
+type jefe is record(
+        nombre emp.ename%type,
+        codigo emp.empno%type,
+        salario emp.sal%type
+);
+type empleado is record(
+        nombre emp.ename%type,
+        codigo emp.empno%type,
+        salario emp.sal%type,
+        subjefe jefe
+    );
+    empleado2 empleado;
+    jefe1 jefe;
+begin
+    select ename,empno,sal into jefe1.nombre,jefe1.codigo,jefe1.salario from emp where ename = 'FORD';
+     select ename,empno,sal into empleado2.nombre,empleado2.codigo,empleado2.salario from emp where hiredate = (select max(hiredate) from emp);
+     empleado2.subjefe := jefe1;
+    dbms_output.put_line(empleado2.nombre);
+    dbms_output.put_line(empleado2.codigo);
+    dbms_output.put_line(empleado2.salario);
+    dbms_output.put_line(empleado2.subjefe.nombre);
+    dbms_output.put_line(empleado2.subjefe.codigo);
+    dbms_output.put_line(empleado2.subjefe.salario);
+end;
+/

@@ -1,0 +1,12 @@
+set serveroutput on;
+declare
+    base int;
+    altura int;
+begin
+    altura := &altura;
+    base := &base;
+dbms_output.put_line((base * altura)/2 || ' metros cuadrados');
+
+    
+end;
+/

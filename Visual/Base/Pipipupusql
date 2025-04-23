@@ -1,0 +1,75 @@
+/*devuelve el nombre del cliente y el precio de venta de la máquina para los casos de línea de fabricación 2,
+estado es PUESTA A PUNTO y fecha año 2023.*/
+
+select nombre_empresa,precio_venta from clientes join avances_lineas_fabricacion on avances_lineas_fabricacion.id_cliente = clientes.cif join maquinas on maquinas.ref = avances_lineas_fabricacion.id_maquina where linea_fabricacion = 2 and estado = 'PUESTA A PUNTO' and extract(year from fecha) = 2023;
+select * from maquinas;
+select * from avances_lineas_fabricacion;
+select * from clientes;
+/*Se quiere saber cuánta venta se ha hecho (suma total) clasificado por cada nombre de cliente. 
+Se entiende por venta cuando una máquina está en los avances de línes de fabricación, 
+independientemente del estado en el que se encuentre.*/
+
+select round(sum(precio_venta),2) from maquinas join avances_lineas_fabricacion on avances_lineas_fabricacion.id_maquina = maquinas.ref join clientes on clientes.cif = avances_lineas_fabricacion.id_cliente group by (nombre_empresa);
+
+/*¿Cuántas piezas hay por tipo y estado? Muestra una lista que muestre tipo, estado y número de piezas.*/
+
+select count(*),tipo,estado from piezas group by (tipo,estado);
+select * from piezas;
+/*Crea un bloque de código anónimo que pida al usuario un nombre de empresa (cliente) y compruebe,
+primero si existe o no ese cliente en la base de datos. 
+Si no existe, que muestre el mensaje ‘No existe ese cliente’. En caso de que exista, 
+devuelve el número total de avances de líneas de fabricación asociados a ese cliente mostrando el
+siguiente mensaje ‘Hay ZZZ líneas para el cliente AAA’,
+siendo ZZZ el número total de esos avances de ese cliente, y AAA el nombre del cliente.*/
+select * from clientes;
+set serveroutput on;
+declare
+variable1 clientes.nombre_empresa%type := '&nombre_empresa';
+variable2 clientes.nombre_empresa%type;
+contador int;
+begin
+select nombre_empresa into variable2 from clientes where nombre_empresa = variable1;
+select count(*) into contador from clientes where nombre_empresa = variable1;
+if contador > 0 then dbms_output.put_line('Existe');
+else dbms_output.put_line('No existe');
+end if;
+
+end;
+/
+select * from clientes;
+/*Crea un bloque de código anónimo que pida al usuario el nombre de un mes (Ej.: AGOSTO).
+debes comprobar si
+    en
+    ese
+    mes
+    hay
+    avances
+    de
+    líneas
+    de
+    fabricación, y
+    en
+    el
+    caso
+    de
+    que
+    los
+    haya, debes
+    devolver
+    el
+    precio
+    de
+    venta
+    de
+    la
+    máquina
+    más
+    cara
+    que
+    esté
+    en
+    los
+    avances
+    en
+    ese
+    mes.*/
