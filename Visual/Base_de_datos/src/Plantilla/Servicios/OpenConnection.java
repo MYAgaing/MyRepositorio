@@ -1,4 +1,4 @@
-package Sevicios;
+package Plantilla.Servicios;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

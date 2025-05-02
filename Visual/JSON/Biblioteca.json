@@ -1,0 +1,37 @@
+{
+    "Nombre": "Marisa",
+    "Direccion": "C/ Doctor Barnard",
+    "Telefono": "640530630",
+    "Ciudad": "Sevilla",
+    "Venta": true,
+    "libros": {
+        "Titulo": "Lies of pi",
+        "Autores": [
+            {
+                "Nombre": "Juan"
+            },
+            {
+                "Nombre": "Nico"
+            }
+        ],
+        "Año de publicacion": 1999,
+        "Generos": [
+            {
+                "Nombre": "Romantico"
+            },
+            {
+                "Nombre": "Actualidad"
+            }
+        ],
+        "Comentarios": [
+            {
+                "Name": "Alonso",
+                "texto": "Libro adecuado"
+            }
+                {
+                "Name": "Ana",
+                "texto": "Final"
+            }
+        ]
+    }
+}

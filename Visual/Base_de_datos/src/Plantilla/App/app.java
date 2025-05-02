@@ -1,4 +1,4 @@
-package App;
+package Plantilla.App;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Modelo.Plantilla;
-import Sevicios.DatosIncompletosException;
-import Sevicios.PlantillaService;
+import Plantilla.Modelo.Plantilla;
+import Plantilla.Servicios.DatosIncompletosException;
+import Plantilla.Servicios.PlantillaService;
 
 public class app {
 

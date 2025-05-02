@@ -1,4 +1,4 @@
-package Sevicios;
+package Plantilla.Servicios;
 
 public class DatosIncompletosException extends Exception {
 

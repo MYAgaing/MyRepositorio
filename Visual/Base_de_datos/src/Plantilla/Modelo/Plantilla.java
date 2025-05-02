@@ -1,8 +1,8 @@
-package Modelo;
+package Plantilla.Modelo;
 
 import java.time.LocalDate;
 
-import Sevicios.DatosIncompletosException;
+import Plantilla.Servicios.DatosIncompletosException;
 
 public class Plantilla {
 

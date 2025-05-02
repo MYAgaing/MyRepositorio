@@ -1,4 +1,4 @@
-package Sevicios;
+package Plantilla.Servicios;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Modelo.Plantilla;
+import Plantilla.Modelo.Plantilla;
 
 public class PlantillaService extends OpenConnection {
 	Scanner sc = new Scanner(System.in);
