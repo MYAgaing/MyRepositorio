@@ -22,7 +22,7 @@ public class app {
 			Boolean nico = true;
 			while (nico) {
 				System.out.println(
-						"Que desea hacer?\n1.Consultar persona con DNI\n2.Consultar personas con Nombre y apellidos\n3.Insertar usuario\n4.Actualizar Registro\n5.Borrar persona\n6.Insertar lista de personas\n7.Cerrar programa");
+						"Que desea hacer?\n1.Consultar persona con DNI\n2.Consultar personas con Nombre y apellidos\n3.Insertar usuario\n4.Actualizar Registro\n5.Borrar persona\n6.Insertar lista de personas\n7.Borrar Adultos\n8.Borrar AdultosB\n9.Cerrar programa");
 				Integer num = sc.nextInt();
 				if (num == 1) {
 					System.out.println("Digame el DNI del usuario");
@@ -73,41 +73,50 @@ public class app {
 						Plantilla p1 = new Plantilla();
 						Plantilla p2 = new Plantilla();
 						Plantilla p3 = new Plantilla();
-						p1.setNombre("Nico");
+						p1.setNombre("Nicho");
 						p1.setApellidos("Adones");
-						p1.setDni("222222222A");
+						p1.setDni("22222222CA");
 						DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-						String vFecha = "15/08/2008";
+						String vFecha = "15/08/2003";
 						try {
 							LocalDate fechaNacimiento = LocalDate.parse(vFecha, format);
 							p1.setFecha_nacimiento(fechaNacimiento);
 						} catch (DateTimeParseException e) {
 							System.out.println("La fecha no es correcta");
 						}
-						p2.setNombre("Nica");
+						p2.setNombre("Nicha");
 						p2.setApellidos("Adonas");
-						p2.setDni("222222222B");
-						String vFecha2 = "15/07/2007";
+						p2.setDni("22222222CB");
+						String vFecha2 = "15/07/2003";
 						try {
 							LocalDate fechaNacimiento = LocalDate.parse(vFecha2, format);
 							p2.setFecha_nacimiento(fechaNacimiento);
 						} catch (DateTimeParseException e) {
 							System.out.println("La fecha no es correcta");
 						}
-						p3.setNombre("Nici");
+						p3.setNombre("Niche");
 						p3.setApellidos("Adonis");
-						p3.setDni("222222222C");
-						String vFecha3 = "15/05/2002";
+						p3.setDni("22222222CC");
+						String vFecha3 = "15/05/2003";
 						try {
 							LocalDate fechaNacimiento = LocalDate.parse(vFecha3, format);
 							p3.setFecha_nacimiento(fechaNacimiento);
 						} catch (DateTimeParseException e) {
 							System.out.println("La fecha no es correcta");
 						}
+						lista.add(p1);
+						lista.add(p2);
+						lista.add(p3);
 						service.insertarListaPersonas(lista);
 					} catch (SQLException e) {
 						System.out.println("Error al inserta la lista");
 					}
+				} else if (num == 7) {
+					service.borrarPersonasA();
+					System.out.println("Personas borradas");
+				} else if (num == 8) {
+					service.borrarPersonasB();
+					System.out.println("Personas borradas correctamente");
 				} else {
 					System.out.println("Cerrando programa");
 					nico = false;

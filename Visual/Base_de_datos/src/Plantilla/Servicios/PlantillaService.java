@@ -62,11 +62,8 @@ public class PlantillaService extends OpenConnection {
 	}
 
 	public void insertarPersona(Plantilla p) throws SQLException {
-		try (Connection conn = openConn.getNewConnection(); Statement stmt = conn.createStatement()) {
-			String sql = "Insert into personas values ('" + p.getDni() + "','" + p.getNombre() + "','"
-					+ p.getApellidos() + "','" + Date.valueOf(p.getFecha_nacimiento()) + "'";
-			System.out.println(sql);
-			stmt.executeUpdate(sql);
+		try (Connection conn = getNewConnection()) {
+			insertaComun(p, conn);
 		} catch (SQLException e) {
 			System.out.println("Error " + e);
 		}
@@ -74,8 +71,8 @@ public class PlantillaService extends OpenConnection {
 
 	public void actualizarPersonas() throws SQLException {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		String sql = "Update personas set nombre = (?), apellidos = (?), dni = (?), fecha_nacimiento = (?) where dni = (?)";
-		String sql2 = "Select * from personas where dni = (?)";
+		String sql = "Update personas set nombre = ?, apellidos = ?, dni = ?, fecha_nacimiento = ? where dni = ?";
+		String sql2 = "Select * from personas where dni = ?";
 		try (Connection conn = getNewConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				PreparedStatement stmt2 = conn.prepareStatement(sql2)) {
@@ -100,8 +97,8 @@ public class PlantillaService extends OpenConnection {
 	}
 
 	public void borrarPersona() throws SQLException {
-		String sql = "Delete from personas where dni = (?)";
-		String sql2 = "Select * from personas where dni = (?)";
+		String sql = "Delete from personas where dni = ?";
+		String sql2 = "Select * from personas where dni = ?";
 		try (Connection conn = getNewConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				PreparedStatement stmt2 = conn.prepareStatement(sql2)) {
@@ -120,25 +117,89 @@ public class PlantillaService extends OpenConnection {
 	}
 
 	public void insertarListaPersonas(List<Plantilla> lista) throws SQLException {
-
-		String sql = "Insert into personas values ((?),(?),(?),(?))";
-		try (Connection conn = getNewConnection(); PreparedStatement stmt = conn.prepareStatement(sql);) {
+		try (Connection conn = getNewConnection();) {
 			conn.setAutoCommit(false);
 			try {
 				for (Plantilla plantilla : lista) {
-					stmt.setString(1, plantilla.getDni());
-					stmt.setString(2, plantilla.getNombre());
-					stmt.setString(3, plantilla.getApellidos());
-					stmt.setDate(4, Date.valueOf(plantilla.getFecha_nacimiento()));
-					stmt.executeUpdate();
+					insertaComun(plantilla, conn);
 				}
+				conn.commit();
 			} catch (SQLException e) {
-				System.out.println("Error al introducir la lista de usuarios");
+				System.out.println("Error al introducir la lista de usuarios: " + e);
 				conn.rollback();
-				throw new SQLException();
 			}
-			conn.commit();
+
 			System.out.println("Esta bien");
+		}
+	}
+
+	private void insertaComun(Plantilla p, Connection conn) throws SQLException {
+		String sql = "Insert into personas values (?,?,?,?)";
+		try (PreparedStatement stmt = conn.prepareStatement(sql);) {
+			stmt.setString(1, p.getDni());
+			stmt.setString(2, p.getNombre());
+			stmt.setString(3, p.getApellidos());
+			stmt.setDate(4, Date.valueOf(p.getFecha_nacimiento()));
+			stmt.executeUpdate();
+		}
+	}
+
+	public void borrarPersonasA() throws SQLException {
+		String sql = "Delete from personas where dni = ?";
+		List<Plantilla> lista = buscarPersonas("");
+		Integer num = 0;
+
+		try (Connection conn = getNewConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+			conn.setAutoCommit(false);
+			try {
+				for (Plantilla plantilla : lista) {
+
+					if (plantilla.mayoriaDeEdad(plantilla)) {
+						stmt.setString(1, plantilla.getDni());
+						num = num + stmt.executeUpdate();
+					}
+
+				}
+				conn.commit();
+				System.out.println(num);
+			} catch (SQLException e) {
+				conn.rollback();
+				System.out.println(e.getMessage());
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	public void borrarPersonasB() throws SQLException {
+		String sql = "Delete from personas where";
+		List<Plantilla> lista = buscarPersonas("");
+		Integer i = 1;
+		try (Connection conn = getNewConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+			conn.setAutoCommit(false);
+			try {
+				for (Plantilla plantilla : lista) {
+					if(plantilla.mayoriaDeEdad(plantilla)) {
+						if (i == 1) {
+							sql = sql + " dni = '" + plantilla.getDni() + "'";
+						} else {
+							sql = sql + " and dni = '" + plantilla.getDni() +"'";
+						}
+						i++;
+					}
+				}
+				stmt.executeUpdate();
+				conn.commit();
+			} catch (SQLException e) {
+				conn.rollback();
+				System.out.println(e.getMessage());
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 

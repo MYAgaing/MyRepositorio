@@ -1,0 +1,27 @@
+{
+    "Nombre": "Cinelandia",
+    "Direccion": " C/ Doctor Barnard",
+    "Telefono": "123456",
+    "Ciudad": "Sevilla",
+    "Salas": [
+        {
+            "nombre": "sala1",
+            "Disponible": true,
+            "Aforo": 30
+        }
+    ],
+    "Peliculas": [
+        {
+            "Titulo": "El merengue",
+            "Director": "Pepe salas",
+            "Genero": "Rock",
+            "Duracion": 120,
+            "Nombre_sala": "Sala1",
+            "Sesiones": [
+                {
+                    "Sesion1": "16:00-18:00"
+                }
+            ]
+        }
+    ]
+}

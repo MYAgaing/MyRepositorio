@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnScrollDown</title>
+</head>
+
+<body>
+    <div>
+        <div class="teemo"><img src="./imagenes/Teemo_0.jpg" alt="Teemo_0" height="200px" width="400px" id="Teemo">
+        </div>
+    </div>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        div.teemo {
+            height: 2000px;
+            position: relative;
+        }
+
+        #Teemo {
+            position: fixed;
+            top: 100px;
+            right: 0;
+            transition: transform 0.1s linear, opacity 0.2 linear;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+    </style>
+    <script>
+        window.addEventListener("scroll", function () {
+            const image = document.getElementById("Teemo");
+            const scrollY = window.scrollY; // cuanto se ha desplazado verticalmente
+
+            // Mover la imagen a la izquierda proporcional al scroll
+            image.style.transform = `translateX(-${scrollY}px)`;
+            const maxScroll = 1000;
+            let opacity = 0 + scrollY / maxScroll;
+            opacity = Math.max(0, Math.min(1, opacity));
+
+            image.style.opacity = opacity;
+        });
+    </script>
+</body>
+
+</html>

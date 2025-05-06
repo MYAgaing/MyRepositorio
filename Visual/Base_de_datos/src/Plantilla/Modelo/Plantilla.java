@@ -1,6 +1,7 @@
 package Plantilla.Modelo;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import Plantilla.Servicios.DatosIncompletosException;
 
@@ -49,6 +50,17 @@ public class Plantilla {
 			return false;
 		}
 		return true;
+	}
+	public Boolean mayoriaDeEdad(Plantilla p) {
+		LocalDate fechaActual = LocalDate.now();
+		Period periodo = p.getFecha_nacimiento().until(fechaActual);
+		if (periodo.getYears() >= 18) {
+			return true;	
+		} else {
+			return false;
+		}
+		
+		
 	}
 	
 	@Override
