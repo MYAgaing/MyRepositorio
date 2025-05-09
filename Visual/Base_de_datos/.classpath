@@ -5,8 +5,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/nadones2540/Documents/GitHub/MyRepositorio/Visual/Documentos/ojdbc17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nicol/Documents/GitHub/MyRepositorio/Visual/Base_de_datos/ojdbc17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
