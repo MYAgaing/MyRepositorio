@@ -13,7 +13,9 @@ import practica.Modelo.Jugador;
 import practica.Servicios.EquipoService;
 import practica.Servicios.EquipoServiceException;
 import practica.Servicios.NotFoundException;
-
+/*
+ * Clase principal que arranca la ejecución
+ */
 public class App {
 
 	public static void main(String[] args) throws SQLException, EquipoServiceException {

@@ -20,6 +20,11 @@ import java.util.Scanner;
 import practica.Modelo.Equipo;
 import practica.Modelo.Jugador;
 
+/*
+ * Este servicio gestiona las operaciones de los jugadores y equipos
+ * En este caso se comunica con la base de datos 
+ */
+
 public class EquipoService {
 
 	private OpenConnection openConn;
@@ -29,7 +34,9 @@ public class EquipoService {
 	public EquipoService() throws SQLException {
 		openConn = new OpenConnection();
 	}
-
+/*
+ * @return Este metodo devuelve una lista de objetos equipos
+ */
 	public List<Equipo> consultarEquipos() throws EquipoServiceException, SQLException {
 		List<Equipo> equipos = new ArrayList<>();
 		ResultSet rs = null;
@@ -54,7 +61,10 @@ public class EquipoService {
 		}
 		return equipos;
 	}
-
+/*
+ * @param Codigo, recive una cadena que es el codigo a buscar
+ * @return Este metodo devuelve una lista de jugadores 
+ */
 	public List<Jugador> consultarJugadoresEquipo(String codigo) throws SQLException {
 		String sql = "SELECT * FROM JUGADOR WHERE CODIGO_EQUIPO = ?";
 		ResultSet rs = null;
@@ -75,6 +85,11 @@ public class EquipoService {
 		return jugadores;
 	}
 
+/*
+ * @param Codigo, recive una cadena que es el codigo a buscar
+ * @return Devuelve una lista de jugadores
+ */
+	
 	public List<Jugador> consultarEquipoCompleto(String codigo) throws SQLException, EquipoServiceException {
 		String sql = "SELECT * FROM JUGADOR WHERE CODIGO_EQUIPO = ?";
 		List<Jugador> lista = new ArrayList<>();
@@ -103,7 +118,11 @@ public class EquipoService {
 		}
 		return lista;
 	}
-
+/*
+ * @param Conn y J, recive una connexción y un objeto jugador, entonces inserta a un jugador
+ * @return No devuelve nada
+ * @throws SQLException si hay problemas con la base de datos
+ */
 	public void insertarJugador(Connection conn, Jugador j) throws SQLException {
 		String sql = "INSERT INTO JUGADOR VALUES (?,?,?,?)";
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -114,7 +133,11 @@ public class EquipoService {
 			stmt.executeUpdate();
 		}
 	}
-
+/*
+ * @param E, recive un objeto equipo el cual lo crea en la base de datos
+ * @return no devuelve nada
+ * @throws SQLEception si hay algun problema con la base de datos
+ */
 	public void crearEquipo(Equipo e) throws SQLException {
 		Integer contador = 0;
 		String sql = "INSERT INTO EQUIPO VALUES (?,?)";
@@ -174,7 +197,11 @@ public class EquipoService {
 			System.out.println("Fallo al introducir los datos " + e5.getMessage());
 		}
 	}
-
+/*
+ * @param Codigo, recive un codigo como cadena que es el equipo a borrar
+ * @return no devuelve nada
+ * @throws SQLException Si hay problemas con la base de datos o NotFoundException si no encuentra nada en la base de datos
+ */
 	public void borrarEquipoCompleto(String codigo) throws SQLException, NotFoundException {
 		String sql = "DELETE FROM JUGADOR WHERE CODIGO_EQUIPO = ?";
 		String sql2 = "DELETE FROM EQUIPO WHERE CODIGO = ?";
@@ -216,7 +243,11 @@ public class EquipoService {
 		}
 
 	}
-
+/*
+ * @param A y B, recive un objeto Equipo y Jugador, se encargar de meter un jugador a un equipo
+ * @return no devulve nada
+ * @throws SQLException si hay algun error con la base de datos y EquipoServiceException si hay algun problema con el usuario
+ */
 	public void añadirJugadorAEquipo(Equipo a, Jugador b) throws SQLException, EquipoServiceException {
 		Integer contador = 0;
 		String sql = "SELECT MAX(NUMERO) FROM JUGADOR WHERE CODIGO_EQUIPO = ?";
@@ -234,7 +265,12 @@ public class EquipoService {
 			throw new EquipoServiceException();
 		}
 	}
-
+	/*
+	 * @param Codigo y Ruta, recive una cadena codigo y la ruta donde se le exportara la lista de jugadores del equipo
+	 * @return no devulve nada
+	 * @throws SQLException si hay algun error con la base de datos y EquipoServiceException si hay algun problema con el usuario, y 
+	 * IOException si hay problemas al exportar.
+	 */
 	public void exportarJugadores(String codigo, String ruta) throws IOException, SQLException, NotFoundException {
 		File archivo = new File(ruta);
 		try {

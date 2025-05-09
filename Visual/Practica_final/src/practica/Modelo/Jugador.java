@@ -2,17 +2,38 @@ package practica.Modelo;
 
 import java.time.LocalDate;
 
-public class Jugador {
+/**
+ * La clase representa un Jugador
+ * 
+ * @author NICOLAS
+ * @version 1.0
+ */
 
+public class Jugador {
+	/*
+	 *Atributo que guarda el numero del Jugador
+	 */
 	private Integer numero;
+	/*
+	 * Atributo que guarda el codigo del equipo que pertenece
+	 */
 	private String codigo_equipo;
+	/*
+	 * Atributo que guarda el nombre del jugador
+	 */
 	private String nombre;
+	/*
+	 * Atributo que guarda la fecha de nacimiento del jugador
+	 */
 	private LocalDate fecha_nacimiento;
 	
 	public Jugador() {
 		
 	}
 	
+	/*
+	 * @param Los getters and setters de los atributos de Jugador
+	 */
 	public Integer getNumero() {
 		return numero;
 	}
