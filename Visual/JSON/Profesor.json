@@ -1,0 +1,23 @@
+{
+    "Nombre": "Juan",
+    "Edad": 47,
+    "Departamento": "DAW",
+    "Disponibilidad": true,
+    "Asignaturas": [
+        {
+            "Nombre": "Sistemas informaticos",
+            "Codigo": "123456",
+            "Numero_de_creditos": 10,
+            "Sesiones_semanales": [
+                {
+                    "Dia de la semana": "Lunes",
+                    "Horas de Inicio y fin": "6",
+                    "Aula": "A7",
+                    "Modalidad": "Presencia",
+                    "Se requiere proyector": true,
+                    "Comentarios": null
+                }
+            ]
+        }
+    ]
+}

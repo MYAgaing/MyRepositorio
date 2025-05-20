@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--1. Usa un canvas de tamaño 400×400 px.
+2. Dibuja la cara (círculo) centrada en el lienzo.
+3. Coloca dos elipses como ojos en la parte superior de la cara.
+4. La nariz debe estar centrada y representada con un triángulo.
+5. La boca debe ser una línea horizontal centrada en la parte inferior de la cara.
+6. El sombrero debe constar de:
+o Una ala horizontal (rectángulo largo y delgado).
+o Un cuerpo del sombrero (rectángulo más alto encima del ala).-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border: solid 1px black;">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        /*Circulo*/
+        ctx.beginPath();
+        ctx.arc(200, 200, 100, 0, 2 * Math.PI);
+        ctx.fillStyle = "#ffcc99";
+        ctx.fill();
+        ctx.stroke();
+        /*sombrero*/
+        ctx.fillStyle = "black";
+        ctx.fillRect(150, 30, 100, 80);
+        ctx.fillStyle = "black";
+        ctx.fillRect(100, 100, 200, 20);
+        /*ojos*/
+        ctx.fillStyle = "white";
+
+        /*Corneas*/
+        ctx.arc(175, 160, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.arc(225, 160, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "#ffcc99";
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

@@ -36,6 +36,8 @@ public class EquipoService {
 	}
 /*
  * @return Este metodo devuelve una lista de objetos equipos
+ * @throws EquipoServiceException en caso de que de error en la base de datos
+ * @throws SQLException en caso de que de error en la base de datos
  */
 	public List<Equipo> consultarEquipos() throws EquipoServiceException, SQLException {
 		List<Equipo> equipos = new ArrayList<>();
@@ -62,8 +64,9 @@ public class EquipoService {
 		return equipos;
 	}
 /*
- * @param Codigo, recive una cadena que es el codigo a buscar
+ * @param codigo , recive una cadena que es el codigo a buscar
  * @return Este metodo devuelve una lista de jugadores 
+ * @throws SQLException en caso de que de error en la base de datos
  */
 	public List<Jugador> consultarJugadoresEquipo(String codigo) throws SQLException {
 		String sql = "SELECT * FROM JUGADOR WHERE CODIGO_EQUIPO = ?";
@@ -86,8 +89,10 @@ public class EquipoService {
 	}
 
 /*
- * @param Codigo, recive una cadena que es el codigo a buscar
+ * @param Codigo , recive una cadena que es el codigo a buscar
  * @return Devuelve una lista de jugadores
+ * @throws SQLException en caso de que de error de base de datos 
+ * @throws EquipoServiceException  en caso de que de error en la base de datos
  */
 	
 	public List<Jugador> consultarEquipoCompleto(String codigo) throws SQLException, EquipoServiceException {
@@ -119,7 +124,7 @@ public class EquipoService {
 		return lista;
 	}
 /*
- * @param Conn y J, recive una connexción y un objeto jugador, entonces inserta a un jugador
+ * @param conn  J, recibe una connexción y un objeto jugador, entonces inserta a un jugador
  * @return No devuelve nada
  * @throws SQLException si hay problemas con la base de datos
  */
@@ -134,7 +139,7 @@ public class EquipoService {
 		}
 	}
 /*
- * @param E, recive un objeto equipo el cual lo crea en la base de datos
+ * @param e , recibe un objeto equipo el cual lo crea en la base de datos
  * @return no devuelve nada
  * @throws SQLEception si hay algun problema con la base de datos
  */
@@ -198,7 +203,7 @@ public class EquipoService {
 		}
 	}
 /*
- * @param Codigo, recive un codigo como cadena que es el equipo a borrar
+ * @param codigo , recive un codigo como cadena que es el equipo a borrar
  * @return no devuelve nada
  * @throws SQLException Si hay problemas con la base de datos o NotFoundException si no encuentra nada en la base de datos
  */
@@ -244,7 +249,7 @@ public class EquipoService {
 
 	}
 /*
- * @param A y B, recive un objeto Equipo y Jugador, se encargar de meter un jugador a un equipo
+ * @param a  b , recive un objeto Equipo y Jugador, se encargar de meter un jugador a un equipo
  * @return no devulve nada
  * @throws SQLException si hay algun error con la base de datos y EquipoServiceException si hay algun problema con el usuario
  */
@@ -266,7 +271,7 @@ public class EquipoService {
 		}
 	}
 	/*
-	 * @param Codigo y Ruta, recive una cadena codigo y la ruta donde se le exportara la lista de jugadores del equipo
+	 * @param codigo  ruta, recive una cadena codigo y la ruta donde se le exportara la lista de jugadores del equipo
 	 * @return no devulve nada
 	 * @throws SQLException si hay algun error con la base de datos y EquipoServiceException si hay algun problema con el usuario, y 
 	 * IOException si hay problemas al exportar.
