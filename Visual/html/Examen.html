@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas id="Canvas1" width="200" height="100" style="border: solid 1px black;"></canvas>
+
+    <script>
+        var c = document.getElementById("Canvas1");
+        var a = c.getContext("2d");
+        a.beginPath();
+        a.strokeStyle = "blue";
+        a.lineWidth = 5;
+        a.moveTo(0, 0);
+        a.lineTo(200, 100);
+        a.stroke();
+        a.beginPath();
+        a.strokeStyle = "red";
+        a.lineWidth = 5;
+        a.moveTo(200, 0);
+        a.lineTo(0, 100);
+        a.stroke();
+        a.beginPath();
+        a.strokeStyle = "green";
+        a.lineWidth = 5;
+        a.arc(95, 50, 40, 0, 2 * Math.PI);
+        a.fillStyle = "green";
+        a.fill();
+        a.stroke();
+        a.beginPath();
+        a.fillStyle = "purple";
+        a.font = "30px Arial";
+        a.fillStyle = "purple";
+        a.fillText("Hola", 70, 50);
+        a.beginPath();
+        var g = a.createLinearGradient(0, 0, 200, 0);
+        g.addColorStop(0, "red");
+        g.addColorStop(1, "white");
+        a.fillStyle = g;
+        a.fillRect(0, 0, 200, 100);
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 10px;
+            padding: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4d77ca;
+        }
+    </style>
+</body>
+
+</html>
