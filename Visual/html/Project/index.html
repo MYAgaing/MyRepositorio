@@ -1,42 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dossier</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Página Personal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("./Imagenes/wild_oliva.png");
+    }
+
+    header {
+      background-color: #333;
+      padding: 15px;
+      color: white;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 20px;
+      text-decoration: none;
+      transition: font-size 1s;
+    }
+
+    nav a:hover {
+      font-size: 20px;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .iconos img {
+      width: 32px;
+      margin-right: 10px;
+      margin-bottom: 70px;
+      margin-left: 50px;
+      padding-top: 25px;
+    }
+    .iconos{
+      width: 100px;
+    }
+
+    details {
+      margin-bottom: 20px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+      text-align: center;
+      color: white;
+      background-color: #ff2c2c31;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+    }
+
+    form label {
+      margin-top: 10px;
+    }
+
+    form input,
+    form textarea,
+    form select {
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .sobreMi {
+      display: flex;
+    }
+
+    img {
+      width: 350px;
+      border-radius: 15px 15px;
+    }
+
+    .Personal {
+      padding-left: 50px;
+      font-size: 30px;
+      color: white;
+      font-style: italic;
+    }
+    .Personal1{
+      background-color: rgb(44, 44, 44);
+      border-radius: 15px 15px;
+      margin-left: 200px;
+      width: 700px;
+    }
+    h2 {
+      padding-left: 100px;
+      color: white;
+      font-size: 40px;
+    }
+
+    .Imagen {
+      padding-left: 200px;
+    }
+    .horario{
+      display: flex;
+      border-radius: 15px 15px;
+      background-color: rgb(44, 44, 44);
+    }
+    .miHorario{
+      padding-right: 850px;
+      font-size: 25px;
+      color: white;
+    }
+    .MisAptitudes{
+      font-size: 25px;
+      color: white;
+    }
+    .Aptitudes{
+      display: flex;
+    }
+    .Aptitudes ul{
+      list-style: none;
+    }
+    #presentacion{
+      background-color: rgb(85, 85, 85);
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <nav>
+      <a href="#presentacion">Presentación</a>
+      <a href="#redes">Redes Sociales</a>
+      <a href="#horario">Horario Escolar</a>
+      <a href="#gustos">Cosas que me gustan</a>
+      <a href="#formulario">Formulario</a>
+    </nav>
+  </header>
 
-    <img src="./Imagenes/k9YDPWJJCXsYU4FLKMAcUGDhrOQTGcXkAp1Hl_-ZUKFjbO4EUfMEwa93DKb7zCWubLnCCUjbeVlkUI0d86LWJQ.webp"
-        alt="Imagen 1" class="imagen-desplegable">
+  <section id="presentacion">
+    <h2>Sobre mí</h2>
+    <div class="sobreMi">
+      <div class="Imagen">
+        <img src="./Imagenes/NICOLAS.png" alt="Foto Personal">
+      </div>
+      <div class="Personal1">
+        <p class="Personal">Hola, mi nombre es nicolas Adones. Soy estudiante</p>
+        <p class="Personal">Me gusta la informatica y la tecnologia</p>
+        <p class="Personal">Aspirante a FrontEnd y con meta hacia FullStack.</p>
+      </div>
+      <div class="iconos">
+        <a href="https://twitter.com/" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
+        <br>
+        <a href="https://github.com/" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub"></a>
+        <br>
+        <a href="https://linkedin.com/" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </section>
 
-    <fieldset class="informacion-desplegable">
-        <legend>Información de la imagen</legend>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed,
-            convallis ex.</p>
-    </fieldset>
 
-    <script>
-        // Selecciona la imagen desplegable
-        const imagenDesplegable = document.querySelector('.imagen-desplegable');
+  <section id="Mis horarios Y aptitudes">
+    <h2>Mis horarios y aptitudes</h2>
 
-        // Selecciona el fieldset desplegable
-        const informacionDesplegable = document.querySelector('.informacion-desplegable');
+  </section>
 
-        // Agrega un evento de clic a la imagen desplegable
-        imagenDesplegable.addEventListener('click', () => {
-            // Agrega la clase "mostrar" al fieldset desplegable para mostrarlo
-            informacionDesplegable.classList.add('mostrar');
-        });
+  <section id="horario">
+    <div class="horario">
+      <div>
+        <details>
+          <summary class="miHorario"><strong>Mi horario</strong></summary>
+          <br>
+          <table>
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>15:00 - 16:00</td>
+                <td rowspan="3">Programacion</td>
+                <td>Entornos de Desarrollo</td>
+                <td rowspan="3">Sistemas Informaticos</td>
+                <td rowspan="3">Programación</td>
+                <td rowspan="2">Entornos de Desarrollo</td>
+              </tr>
+              <tr>
+                <td>16:00 - 17:00</td>
+                <td>Digitalización</td>
+              </tr>
+              <tr>
+                <td>17:00 - 18:00</td>
+                <td>Sostenibilidad</td>
+                <td>Programación</td>
+              </tr>
+              <tr>
+                <td>18:00 - 18:20</td>
+                <td>Recreo</td>
+                <td>Recreo</td>
+                <td>Recreo</td>
+                <td>Recreo</td>
+                <td>Recreo</td>
+              </tr>
+              <tr>
+                <td>18:20 - 19:20</td>
+                <td>Lenguaje de Marcas</td>
+                <td rowspan="3"></td>
+                <td rowspan="3">Base de datos</td>
+                <td rowspan="3">Base de datos</td>
+                <td>Programación</td>
+              </tr>
+              <tr>
+                <td>19:20 - 20:20</td>
+                <td rowspan="2">Sistemas informaticos</td>
+                <td rowspan="2">Lenguaje de Marcas</td>
+              </tr>
+              <tr>
+                <td>20:20 - 21:20</td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+      </div>
+      <div>
+        <details>
+          <summary class="MisAptitudes"><strong>Mis aptitudes</strong></summary>
+          <br>
+          <div class="Aptitudes">
+            <ul>
+              <li>Competencias Tecnicas
+                <ul>
+                  <li>Gestion de Sistemas</li>
+                  <li>Reparacion y mantenimiento de equipos</li>
+                  <li>Monitorizacioon de Redes</li>
+                  <li>Diseño de paginas web</li>
+                  <li>Desarrollo de aplicaciones</li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>Competencias Personasles
+                <ul>
+                  <li>Hola</li>
+                  <li>Adios</li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          
+        </details>
+      </div>
+    </div>
 
-        // Agrega un evento de clic al fieldset desplegable para ocultarlo
-        informacionDesplegable.addEventListener('click', () => {
-            // Elimina la clase "mostrar" del fieldset desplegable para ocultarlo
-            informacionDesplegable.classList.remove('mostrar');
-        });
-    </script>
+  </section>
+
+  <section id="formulario">
+    <h2>Formulario de contacto</h2>
+    <form method="POST" action="https://formsubmit.co/nicolas.adones8@gmail.com">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono">
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad">
+
+      <label for="genero">Género:</label>
+      <select id="genero" name="genero">
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+        <option value="otro">Otro</option>
+        <option value="prefiero_no_decir">Helicoptero de combate</option>
+      </select>
+
+      <label>Informacion adicional</label>
+      <input type="checkbox" name="temas" value="Animales"> ¿Posee animales?<br>
+      <input type="checkbox" name="temas" value="Familia"> ¿Es familia numerosa?<br>
+      <input type="checkbox" name="temas" value="Trabajo"> ¿Ha trabajado fuera de España?<br>
+
+      <label>¿Le daria un 10 a esta pagina?</label>
+      <input type="radio" name="experiencia" value="si"> Sí
+      <input type="radio" name="experiencia" value="no"> No
+
+      <label for="comentarios">Comentarios adicionales:</label>
+      <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
 </body>
 
 </html>
