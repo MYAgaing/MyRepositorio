@@ -1,0 +1,6 @@
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+# Contraseña
+password = "MiContraseña123!"
+password_bytes = password.encode()  # convierte a bytes
+print(password_bytes)
